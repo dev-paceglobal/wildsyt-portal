@@ -29,14 +29,7 @@ const AccountHeader: React.FC = () => {
                   <a href='#'>
                     <KTIcon iconName='verify' className='fs-1 text-primary' />
                   </a>
-                  <a
-                    href='#'
-                    className='btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3'
-                    data-bs-toggle='modal'
-                    data-bs-target='#kt_modal_upgrade_plan'
-                  >
-                    Upgrade to Pro
-                  </a>
+                 
                 </div>
 
                 <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>
@@ -59,7 +52,7 @@ const AccountHeader: React.FC = () => {
                     className='d-flex align-items-center text-gray-400 text-hover-primary mb-2'
                   >
                     <KTIcon iconName='sms' className='fs-4 me-1' />
-                    max@kt.com
+                    max@beastlyads.com
                   </a>
                 </div>
               </div>

@@ -25,9 +25,7 @@ const ProfileHeader: React.FC = () => {
                   <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
                     Max Smith
                   </a>
-                  <a href='#'>
-                    <KTIcon iconName='verify' className='fs-1 text-primary' />
-                  </a>
+               
                 </div>
 
                 <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>
@@ -149,50 +147,7 @@ const ProfileHeader: React.FC = () => {
                 Overview
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link
-                className={
-                  `nav-link text-active-primary me-6 ` +
-                  (location.pathname === '/crafted/pages/profile/projects' && 'active')
-                }
-                to='/crafted/pages/profile/projects'
-              >
-                Projects
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className={
-                  `nav-link text-active-primary me-6 ` +
-                  (location.pathname === '/crafted/pages/profile/campaigns' && 'active')
-                }
-                to='/crafted/pages/profile/campaigns'
-              >
-                Campaigns
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className={
-                  `nav-link text-active-primary me-6 ` +
-                  (location.pathname === '/crafted/pages/profile/documents' && 'active')
-                }
-                to='/crafted/pages/profile/documents'
-              >
-                Documents
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className={
-                  `nav-link text-active-primary me-6 ` +
-                  (location.pathname === '/crafted/pages/profile/connections' && 'active')
-                }
-                to='/crafted/pages/profile/connections'
-              >
-                Connections
-              </Link>
-            </li>
+         
           </ul>
         </div>
       </div>

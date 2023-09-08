@@ -41,42 +41,7 @@ const ProfilePage = () => (
           </>
         }
       />
-      <Route
-        path='projects'
-        element={
-          <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Projects</PageTitle>
-            <Projects />
-          </>
-        }
-      />
-      <Route
-        path='campaigns'
-        element={
-          <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Campaigns</PageTitle>
-            <Campaigns />
-          </>
-        }
-      />
-      <Route
-        path='documents'
-        element={
-          <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Documents</PageTitle>
-            <Documents />
-          </>
-        }
-      />
-      <Route
-        path='connections'
-        element={
-          <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Connections</PageTitle>
-            <Connections />
-          </>
-        }
-      />
+    
       <Route index element={<Navigate to='/crafted/pages/profile/overview' />} />
     </Route>
   </Routes>

@@ -148,25 +148,7 @@ const ProfileDetails: React.FC = () => {
               </div>
             </div>
 
-            <div className='row mb-6'>
-              <label className='col-lg-4 col-form-label fw-bold fs-6'>
-                <span className='required'>Company Site</span>
-              </label>
-
-              <div className='col-lg-8 fv-row'>
-                <input
-                  type='text'
-                  className='form-control form-control-lg form-control-solid'
-                  placeholder='Company website'
-                  {...formik.getFieldProps('companySite')}
-                />
-                {formik.touched.companySite && formik.errors.companySite && (
-                  <div className='fv-plugins-message-container'>
-                    <div className='fv-help-block'>{formik.errors.companySite}</div>
-                  </div>
-                )}
-              </div>
-            </div>
+         
 
             <div className='row mb-6'>
               <label className='col-lg-4 col-form-label fw-bold fs-6'>

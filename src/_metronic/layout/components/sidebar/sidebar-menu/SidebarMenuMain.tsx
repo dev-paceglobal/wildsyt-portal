@@ -22,6 +22,48 @@ const SidebarMenuMain = () => {
         title={'User Management'}
         fontIcon='bi-app-indicator'
       />
+      <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Manage Management'}
+        fontIcon='bi-app-indicator'
+      />
+        <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Category Management'}
+        fontIcon='bi-app-indicator'
+      />
+       <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Commission'}
+        fontIcon='bi-app-indicator'
+      />
+        <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Ads Management'}
+        fontIcon='bi-app-indicator'
+      />
+        <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Payments Logs'}
+        fontIcon='bi-app-indicator'
+      />
+       <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Manage Feedback'}
+        fontIcon='bi-app-indicator'
+      />
+       <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'Profile'}
+        fontIcon='bi-app-indicator'
+      />
       {/* <SidebarMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
