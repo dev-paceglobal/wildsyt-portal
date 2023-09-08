@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {StepProps} from '../IAppModels'
+import { StepProps } from '../IAppModels'
+import car1 from '../../../../../assest/images/car1.jpg'
 
-const Step3 = ({data, updateData, hasError}: StepProps) => {
+const Step3 = ({ data, updateData, hasError }: StepProps) => {
   return (
     <>
       {/*begin::Step 3 */}
@@ -10,9 +11,11 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
           {/*begin::Form Group */}
 
           <div className='fv-row mb-10'>
-            <label className='required fs-5 fw-semibold mb-2'>Database Name</label>
-
-            <input
+            <label className='required fs-5 fw-semibold mb-2'>Car Name</label>
+            <div >
+              Nissan GTR
+            </div>
+            {/* <input
               type='text'
               className='form-control form-control-lg form-control-solid'
               name='dbname'
@@ -25,7 +28,7 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
                   },
                 })
               }
-            />
+            /> */}
             {!data.appDatabase.databaseName && hasError && (
               <div className='fv-plugins-message-container'>
                 <div data-field='appname' data-validator='notEmpty' className='fv-help-block'>
@@ -37,7 +40,7 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
           {/*end::Form Group */}
 
           {/*begin::Form Group */}
-          <div className='fv-row'>
+          {/* <div className='fv-row'>
             <label className='d-flex align-items-center fs-5 fw-semibold mb-4'>
               <span className='required'>Select Database Engine</span>
 
@@ -47,8 +50,6 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
                 title='Select your app database engine'
               ></i>
             </label>
-
-            {/*begin:Option */}
             <label className='d-flex align-items-center justify-content-between cursor-pointer mb-6'>
               <span className='d-flex align-items-center me-2'>
                 <span className='symbol symbol-50px me-6'>
@@ -81,9 +82,6 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
                 />
               </span>
             </label>
-            {/*end::Option */}
-
-            {/*begin:Option */}
             <label className='d-flex align-items-center justify-content-between cursor-pointer mb-6'>
               <span className='d-flex align-items-center me-2'>
                 <span className='symbol symbol-50px me-6'>
@@ -116,9 +114,6 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
                 />
               </span>
             </label>
-            {/*end::Option */}
-
-            {/*begin:Option */}
             <label className='d-flex align-items-center justify-content-between cursor-pointer mb-6'>
               <span className='d-flex align-items-center me-2'>
                 <span className='symbol symbol-50px me-6'>
@@ -151,9 +146,8 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
                 />
               </span>
             </label>
-            {/*end::Option */}
-          </div>
-          {/*end::Form Group */}
+          </div> */}
+          <img src={car1} height={190} />
         </div>
       </div>
       {/*end::Step 3 */}
@@ -161,4 +155,4 @@ const Step3 = ({data, updateData, hasError}: StepProps) => {
   )
 }
 
-export {Step3}
+export { Step3 }
