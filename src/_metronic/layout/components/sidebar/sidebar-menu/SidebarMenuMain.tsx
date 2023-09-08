@@ -16,6 +16,12 @@ const SidebarMenuMain = () => {
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         fontIcon='bi-app-indicator'
       />
+      <SidebarMenuItem
+        to='/UserManagement'
+        icon='element-11'
+        title={'User Management'}
+        fontIcon='bi-app-indicator'
+      />
       {/* <SidebarMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>

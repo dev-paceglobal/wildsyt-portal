@@ -45,6 +45,7 @@ const SidebarMenuItem: FC<Props & WithChildren> = ({
         )}
         <span className='menu-title'>{title}</span>
       </Link>
+
       {children}
     </div>
   )
