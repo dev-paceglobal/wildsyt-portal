@@ -34,29 +34,38 @@ export const UIStyledStandardField = styled(TextField)(({theme}) => ({
 export const CountryListWrapper = styled(Box)(({theme, error}) => ({
   height: '100%',
   width: '100%',
-  backgroundColor: 'white',
-  borderRadius: '0.5rem !important',
-
   '& .form-control': {
     padding: '14.5px 14px 12.5px 58px',
     width: '100%',
-    borderRadius: '8px',
+    height: '45px !important',
+    // borderRadius: '8px',
     borderColor: error && 'red',
+    backgroundColor: 'transparent !important',
+    color: '#595959',
+    border: theme.palette.primary.inputBorder,
 
     '&:hover': {
-      borderColor: error && 'red',
+      borderColor: error ? 'red' : theme.palette.primary.main,
     },
     '&:focus': {
-      borderColor: error && 'red',
+      borderColor: error ? 'red' : theme.palette.primary.main,
       boxShadow: 'none',
     },
   },
   '& .special-label': {
-    display: 'none',
+    display: 'block',
     left: '10px',
-    color: error && 'red',
-    // fontFamily: "'Open Sans', 'sans-serif'",
+    color: error ? 'red' : theme.palette.secondary.main,
+    fontFamily: "'Open Sans', 'sans-serif'",
     fontSize: '0.7rem',
+  },
+  '& .flag-dropdown': {
+    backgroundColor: 'transparent !important',
+    borderWidth: '0px 1px 0px 0px',
+    borderStyle: 'solid',
+    '> .selected-flag:hover': {
+      backgroundColor: 'transparent !important',
+    },
   },
 }))
 

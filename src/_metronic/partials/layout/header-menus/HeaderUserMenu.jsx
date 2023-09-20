@@ -1,12 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../../../app/modules/auth'
 import {Languages} from './Languages'
 import {toAbsoluteUrl} from '../../../helpers'
+import {useSelector} from 'react-redux'
+import {removeToken} from '../../../../apis/Auth'
 
-const HeaderUserMenu: FC = () => {
-  const {currentUser, logout} = useAuth()
+const HeaderUserMenu = () => {
+  const {currentUser} = useAuth()
+  const userDataReducer = useSelector((state) => state?.user)
+
+  const navigate = useNavigate()
+
+  const logout = () => {
+    removeToken()
+    navigate('/auth')
+  }
+
   return (
     <div
       className='menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px'
@@ -15,13 +26,12 @@ const HeaderUserMenu: FC = () => {
       <div className='menu-item px-3'>
         <div className='menu-content d-flex align-items-center px-3'>
           <div className='symbol symbol-50px me-5'>
-            <img alt='Logo' src={toAbsoluteUrl('/media/avatars/300-3.jpg')} />
+            <img alt='Logo' src={userDataReducer?.user?.image} />
           </div>
 
           <div className='d-flex flex-column'>
             <div className='fw-bolder d-flex align-items-center fs-5'>
               {currentUser?.first_name} {currentUser?.first_name}
-             
             </div>
             <a href='#' className='fw-bold text-muted text-hover-primary fs-7'>
               {currentUser?.email}
@@ -33,7 +43,7 @@ const HeaderUserMenu: FC = () => {
       <div className='separator my-2'></div>
 
       <div className='menu-item px-5'>
-        <Link to={'/crafted/pages/profile'} className='menu-link px-5'>
+        <Link to={'/profile'} className='menu-link px-5'>
           My Profile
         </Link>
       </div>

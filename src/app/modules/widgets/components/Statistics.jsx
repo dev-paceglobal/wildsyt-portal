@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {
   StatisticsWidget1,
   StatisticsWidget2,
@@ -8,7 +8,7 @@ import {
   StatisticsWidget6,
 } from '../../../../_metronic/partials/widgets'
 
-const Statistics: FC = () => {
+const Statistics = () => {
   return (
     <>
       {/* begin::Row */}

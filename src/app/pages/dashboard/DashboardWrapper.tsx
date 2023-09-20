@@ -51,7 +51,7 @@ const DashboardPage: FC = () => (
 
       {/* begin::Col */}
       <div className='col-xxl-6'>
-      <ChartsWidget1 className='card-xxl-stretch mb-xl-3' />
+        <ChartsWidget1 className='card-xxl-stretch mb-xl-3' />
       </div>
       {/* end::Col */}
     </div>
@@ -79,7 +79,7 @@ const DashboardPage: FC = () => (
         <ListsWidget3 className='card-xxl-stretch mb-xl-3' />
       </div> */}
       <div className='col-xl-12'>
-        <TablesWidget10 className='card-xxl-stretch mb-5 mb-xl-8' />
+        <TablesWidget10 btnName='Add Member' className='card-xxl-stretch mb-5 mb-xl-8' />
       </div>
     </div>
     {/* end::Row */}

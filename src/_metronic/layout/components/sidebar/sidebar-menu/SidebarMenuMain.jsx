@@ -12,58 +12,53 @@ const SidebarMenuMain = () => {
     <>
       <SidebarMenuItem
         to='/dashboard'
-        icon='element-11'
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
-        fontIcon='bi-app-indicator'
+        iconClass='fa-solid fa-boxes-stacked'
+        myIcon={true}
       />
       <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+        to='/user-management'
         title={'User Management'}
-        fontIcon='bi-app-indicator'
+        iconClass='bi bi-person-vcard'
+        myIcon={true}
       />
       <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
-        title={'Manage Management'}
-        fontIcon='bi-app-indicator'
+        to='/content-management'
+        title={'Content Management'}
+        iconClass='bi bi-body-text'
+        myIcon={true}
       />
-        <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+      <SidebarMenuItem
+        to='/category-management'
         title={'Category Management'}
-        fontIcon='bi-app-indicator'
+        myIcon={true}
+        iconClass='bi bi-ui-checks-grid'
       />
-       <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+      <SidebarMenuItem
+        to='/commission-management'
         title={'Commission'}
-        fontIcon='bi-app-indicator'
+        myIcon={true}
+        iconClass='fa-solid fa-hand-holding-dollar'
       />
-        <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+      <SidebarMenuItem
+        to='/ads-management'
         title={'Ads Management'}
-        fontIcon='bi-app-indicator'
+        iconClass='bi bi-kanban'
+        myIcon={true}
       />
-        <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+      <SidebarMenuItem
+        to='/payment-log'
         title={'Payments Logs'}
-        fontIcon='bi-app-indicator'
+        iconClass='bi bi-credit-card'
+        myIcon={true}
       />
-       <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
+      <SidebarMenuItem
+        to='/manage-feedback'
         title={'Manage Feedback'}
-        fontIcon='bi-app-indicator'
+        myIcon={true}
+        iconClass='bi bi-layout-text-window-reverse'
       />
-       <SidebarMenuItem
-        to='/UserManagement'
-        icon='element-11'
-        title={'Profile'}
-        fontIcon='bi-app-indicator'
-      />
+      <SidebarMenuItem to='/profile' title={'Profile'} myIcon={true} iconClass={'bi bi-people'} />
       {/* <SidebarMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>

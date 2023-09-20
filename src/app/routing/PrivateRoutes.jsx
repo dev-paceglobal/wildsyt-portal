@@ -1,5 +1,5 @@
-import {lazy, FC, Suspense} from 'react'
-import {Route, Routes, Navigate} from 'react-router-dom'
+import {lazy, FC, Suspense, useEffect} from 'react'
+import {Route, Routes, Navigate, useNavigate} from 'react-router-dom'
 import {MasterLayout} from '../../_metronic/layout/MasterLayout'
 import TopBarProgress from 'react-topbar-progress-indicator'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
@@ -8,6 +8,17 @@ import {getCSSVariableValue} from '../../_metronic/assets/ts/_utils'
 import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import {UserManage} from '../pages/UserManagement'
+import {getToken} from '../../apis/Auth'
+import Profile from '../pages/Profile'
+import {apiGet} from '../../apis/ApiRequest'
+import {ApiEndpoints} from '../../apis/ApiEndpoints'
+import {useDispatch} from 'react-redux'
+import {getProfile, setUserData} from '../../store/userSlice'
+import ContentManagement from '../pages/ContentManagement'
+import CategoryManagement from '../pages/CategoryManagement'
+import CommissionManagement from '../pages/CommisionManagement'
+import AdsManagement from '../pages/AdsManagement'
+import PaymentLog from '../pages/PaymentLog'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -16,6 +27,19 @@ const PrivateRoutes = () => {
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
+
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const token = getToken()
+    if (token == null || token == '') {
+      navigate('/auth')
+    }
+
+    dispatch(getProfile())
+  }, [])
 
   return (
     <Routes>
@@ -27,14 +51,14 @@ const PrivateRoutes = () => {
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
         {/* Lazy Modules */}
-        <Route
+        {/* <Route
           path='crafted/pages/profile/*'
           element={
             <SuspensedView>
               <ProfilePage />
             </SuspensedView>
           }
-        />
+        /> */}
         <Route
           path='crafted/pages/wizards/*'
           element={
@@ -68,18 +92,66 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='apps/user-management/*'
+          path='/profile'
           element={
             <SuspensedView>
-              <UsersPage />
+              <Profile />
             </SuspensedView>
           }
         />
         <Route
-          path='/UserManagement'
+          path='/user-management'
           element={
             <SuspensedView>
               <UserManage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/content-management'
+          element={
+            <SuspensedView>
+              <ContentManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/category-management'
+          element={
+            <SuspensedView>
+              <CategoryManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/commission-management'
+          element={
+            <SuspensedView>
+              <CommissionManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/ads-management'
+          element={
+            <SuspensedView>
+              <AdsManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/payment-log'
+          element={
+            <SuspensedView>
+              <PaymentLog />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/manage-feedback'
+          element={
+            <SuspensedView>
+              <PaymentLog />
             </SuspensedView>
           }
         />
@@ -90,7 +162,7 @@ const PrivateRoutes = () => {
   )
 }
 
-const SuspensedView: FC<WithChildren> = ({children}) => {
+const SuspensedView = ({children}) => {
   const baseColor = getCSSVariableValue('--bs-primary')
   TopBarProgress.config({
     barColors: {

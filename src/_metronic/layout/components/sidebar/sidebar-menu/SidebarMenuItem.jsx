@@ -1,25 +1,19 @@
-import {FC} from 'react'
+import {FC, ReactNode} from 'react'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router'
 import {checkIsActive, KTIcon, WithChildren} from '../../../../helpers'
 import {useLayout} from '../../../core'
 
-type Props = {
-  to: string
-  title: string
-  icon?: string
-  fontIcon?: string
-  hasBullet?: boolean
-}
-
-const SidebarMenuItem: FC<Props & WithChildren> = ({
+const SidebarMenuItem = ({
   children,
   to,
   title,
   icon,
   fontIcon,
   hasBullet = false,
+  iconClass,
+  myIcon = false,
 }) => {
   const {pathname} = useLocation()
   const isActive = checkIsActive(pathname, to)
@@ -29,11 +23,11 @@ const SidebarMenuItem: FC<Props & WithChildren> = ({
   return (
     <div className='menu-item'>
       <Link className={clsx('menu-link without-sub', {active: isActive})} to={to}>
-        {hasBullet && (
+        {/* {hasBullet && (
           <span className='menu-bullet'>
             <span className='bullet bullet-dot'></span>
           </span>
-        )}
+        )} */}
         {icon && app?.sidebar?.default?.menu?.iconType === 'svg' && (
           <span className='menu-icon'>
             {' '}
@@ -42,6 +36,15 @@ const SidebarMenuItem: FC<Props & WithChildren> = ({
         )}
         {fontIcon && app?.sidebar?.default?.menu?.iconType === 'font' && (
           <i className={clsx('bi fs-3', fontIcon)}></i>
+        )}
+        {myIcon && (
+          <i
+            class={iconClass}
+            style={{
+              fontSize: '20px',
+              marginRight: 10,
+            }}
+          ></i>
         )}
         <span className='menu-title'>{title}</span>
       </Link>

@@ -10,8 +10,17 @@ import {loginSchema} from '../schema'
 import {Grid} from '@mui/material'
 import UITypogrpahy from '../../../../components/UITypography/UITypography'
 import UIButton from '../../../../components/UIButton/UIButton'
+import {apiPost} from '../../../../apis/ApiRequest'
+import {ApiEndpoints} from '../../../../apis/ApiEndpoints'
+import {toast} from 'react-toastify'
+import {useNavigate} from 'react-router-dom'
+import {setToken} from '../../../../apis/Auth'
+import {useDispatch} from 'react-redux'
+import {setUserData} from '../../../../store/userSlice'
 
 export function Login() {
+  const navigate = useNavigate()
+
   const {
     control,
     handleSubmit,
@@ -23,8 +32,8 @@ export function Login() {
       password: '',
     },
   })
-  const [loading, setLoading] = useState(false)
-  const {saveAuth, setCurrentUser} = useAuth()
+
+  const dispatch = useDispatch()
 
   // const formik = useFormik({
   //   initialValues,
@@ -47,7 +56,26 @@ export function Login() {
   // })
 
   const handleLogin = (data) => {
-    console.log('data', data)
+    const dataObj = {
+      email: data.email,
+      password: data.password,
+    }
+    apiPost(
+      `${ApiEndpoints.root}${ApiEndpoints.login}`,
+      dataObj,
+      (res) => {
+        toast.success(res.message)
+        setToken(res.data.token)
+        navigate('/dashboard')
+        const user = {
+          user: res?.data?.user,
+        }
+        dispatch(setUserData(user))
+      },
+      (err) => {
+        toast.error(err?.response?.data?.message)
+      }
+    )
   }
 
   return (
@@ -82,10 +110,21 @@ export function Login() {
             />
           </Grid>
           <Grid item xs={12}>
-            <UIButton btnType='contained' fullWidth label='Sign In' />
+            <UIButton btnType='contained' fullWidth label='Sign In' type='submit' />
           </Grid>
         </Grid>
       </form>
+
+      <Grid container justifyContent='flex-end' mt={1}>
+        <Grid item xs={6}>
+          <UIButton
+            label='Forget Password?'
+            onClick={() => {
+              navigate('/auth/forgot-password')
+            }}
+          />
+        </Grid>
+      </Grid>
     </>
   )
 }

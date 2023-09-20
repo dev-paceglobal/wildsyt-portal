@@ -11,6 +11,7 @@ import {PrivateRoutes} from './PrivateRoutes'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {Logout, AuthPage, useAuth} from '../modules/auth'
 import {App} from '../App'
+import {getToken} from '../../apis/Auth'
 
 /**
  * Base URL of the website.
@@ -21,23 +22,20 @@ const {PUBLIC_URL} = process.env
 
 const AppRoutes: FC = () => {
   const {currentUser} = useAuth()
+
+  const token = getToken()
+  
   return (
-    <BrowserRouter basename={PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
         <Route element={<App />}>
           <Route path='error/*' element={<ErrorsPage />} />
           <Route path='logout' element={<Logout />} />
-          {currentUser ? (
-            <>
-              <Route path='/*' element={<PrivateRoutes />} />
-              <Route index element={<Navigate to='/dashboard' />} />
-            </>
-          ) : (
-            <>
-              <Route path='auth/*' element={<AuthPage />} />
-              <Route path='*' element={<Navigate to='/auth' />} />
-            </>
-          )}
+          <Route path='/*' element={<PrivateRoutes />} />
+          <Route index element={<Navigate to='/dashboard' />} />
+       
+          <Route path='auth/*' element={<AuthPage />} />
+          <Route path='*' element={<Navigate to='/auth' />} />
         </Route>
       </Routes>
     </BrowserRouter>

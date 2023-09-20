@@ -4,9 +4,10 @@ import {KTIcon, toAbsoluteUrl} from '../../../helpers'
 
 type Props = {
   className: string
+  btnName: string
 }
 
-const TablesWidget10: React.FC<Props> = ({className}) => {
+const TablesWidget10: React.FC<Props> = ({className, btnName}) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -15,23 +16,25 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
           <span className='card-label fw-bold fs-3 mb-1'>Members Statistics</span>
           <span className='text-muted mt-1 fw-semibold fs-7'>Over 500 members</span>
         </h3>
-        <div
-          className='card-toolbar'
-          data-bs-toggle='tooltip'
-          data-bs-placement='top'
-          data-bs-trigger='hover'
-          title='Click to add a user'
-        >
-          <a
-            href='#'
-            className='btn btn-sm btn-light-primary'
-            // data-bs-toggle='modal'
-            // data-bs-target='#kt_modal_invite_friends'
+        {btnName != '' && (
+          <div
+            className='card-toolbar'
+            data-bs-toggle='tooltip'
+            data-bs-placement='top'
+            data-bs-trigger='hover'
+            title='Click to add a user'
           >
-            <KTIcon iconName='plus' className='fs-3' />
-            New Member
-          </a>
-        </div>
+            <a
+              href='#'
+              className='btn btn-sm btn-light-primary'
+              // data-bs-toggle='modal'
+              // data-bs-target='#kt_modal_invite_friends'
+            >
+              <KTIcon iconName='plus' className='fs-3' />
+              {btnName}
+            </a>
+          </div>
+        )}
       </div>
       {/* end::Header */}
       {/* begin::Body */}
