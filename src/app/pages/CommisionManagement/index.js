@@ -7,7 +7,7 @@ const CommissionManagement = () => {
   return (
     <div>
       <Grid container>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <StatisticsWidget1
             className='card-xl-stretch mb-xl-8'
             image='abstract-4.svg'

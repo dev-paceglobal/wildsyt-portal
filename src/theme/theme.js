@@ -15,6 +15,9 @@ const theme = createTheme({
       white: '#ffffff',
       black: '#000000',
     },
+    indicators: {
+      main: '#cc2828',
+    },
   },
 })
 

@@ -21,6 +21,7 @@ export function HeaderWrapper() {
           classes.headerContainer.join(' '),
           config.app?.header?.default?.containerClass
         )}
+        style={{width: '100%'}}
       >
         {config.app.sidebar?.display && (
           <>

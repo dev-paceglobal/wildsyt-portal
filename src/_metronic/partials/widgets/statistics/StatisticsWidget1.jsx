@@ -5,6 +5,7 @@ import UIButton from '../../../../components/UIButton/UIButton'
 import UITypogrpahy from '../../../../components/UITypography/UITypography'
 import UITextField from '../../../../components/UITextField/UITextField'
 import InputAdornment from '@mui/material/InputAdornment'
+import {Box} from '@mui/material'
 
 const StatisticsWidget1 = ({
   className,
@@ -27,7 +28,14 @@ const StatisticsWidget1 = ({
       }}
     >
       {/* begin::Body */}
-      <div className='card-body' style={{display: 'flex', flexDirection: 'column', width: '40%'}}>
+      <Box
+        className='card-body'
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: {xs: '100%', sm: '70%', md: '90%', lg: '50%'},
+        }}
+      >
         <UITypogrpahy type='subHeading' title='Commission' />
 
         {!isEdit ? (
@@ -46,7 +54,7 @@ const StatisticsWidget1 = ({
         )}
 
         <UIButton btnType='contained' label={btnLabel} {...props} />
-      </div>
+      </Box>
       {/* end::Body */}
     </div>
   )

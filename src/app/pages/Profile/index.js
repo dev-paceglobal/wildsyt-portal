@@ -11,8 +11,8 @@ import {getProfile} from '../../../store/userSlice'
 import UITextField from '../../../components/UITextField/UITextField'
 import EditProfileForm from '../../../container/Profile/EditProfileForm'
 import EditProfilePassword from '../../../container/Profile/EditProfilePassword'
-import Skeleton from '@mui/material/Skeleton';
-
+import Skeleton from '@mui/material/Skeleton'
+import UITypogrpahy from '../../../components/UITypography/UITypography'
 
 const Profile = () => {
   const userDataReducer = useSelector((state) => state?.user)
@@ -56,10 +56,13 @@ const Profile = () => {
           <UIDivider />
         </Grid>
       </Grid>
-      <Grid container justifyContent='space-between' mt={4}>
-        <Grid item xs={4}>
+      <Grid container justifyContent='space-between' mt={4} spacing={3}>
+        <Grid item xs={12} md={4}>
           {!userDataReducer.loading ? (
-            <EditProfileForm />
+            <>
+              {/* <UITypogrpahy type='mainDescription' title='Profile Change' /> */}
+              <EditProfileForm />
+            </>
           ) : (
             <>
               <Skeleton variant='text' sx={{fontSize: '2rem'}} />
@@ -68,7 +71,8 @@ const Profile = () => {
             </>
           )}
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
+          {/* <UITypogrpahy type='heading' title='Reset Password' /> */}
           <EditProfilePassword />
         </Grid>
         <Grid item xs={1}></Grid>

@@ -7,4 +7,6 @@ export const ApiEndpoints = {
   editProfile: '/profile-update',
   changePassword: '/change-password',
   verifyOtp: '/verify-otp',
+  users: '/users/',
+  updateUser: '/users/',
 }

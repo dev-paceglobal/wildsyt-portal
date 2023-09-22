@@ -19,6 +19,7 @@ import CategoryManagement from '../pages/CategoryManagement'
 import CommissionManagement from '../pages/CommisionManagement'
 import AdsManagement from '../pages/AdsManagement'
 import PaymentLog from '../pages/PaymentLog'
+import UserDetail from '../pages/UserManagement/UserDetail'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -104,6 +105,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <UserManage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/user-management/:id'
+          element={
+            <SuspensedView>
+              <UserDetail />
             </SuspensedView>
           }
         />
