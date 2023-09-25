@@ -22,6 +22,7 @@ import PaymentLog from '../pages/PaymentLog'
 import UserDetail from '../pages/UserManagement/UserDetail'
 import {pathLocations} from '../../utils/pathLocations'
 import CategoryDetail from '../pages/CategoryManagement/CategoryDetail'
+import ContentDetail from '../pages/ContentManagement/ContentDetail'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -119,10 +120,18 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/content-management'
+          path={`${pathLocations.contentManagement}`}
           element={
             <SuspensedView>
               <ContentManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={`${pathLocations.contentManagement}/:id`}
+          element={
+            <SuspensedView>
+              <ContentDetail />
             </SuspensedView>
           }
         />

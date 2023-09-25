@@ -39,12 +39,11 @@ const CategoryDetail = () => {
       `${ApiEndpoints.root}${ApiEndpoints.updateCategory}/${id}`,
       dataObj,
       (res) => {
-        console.log('res', res)
         toast.success(res.message)
         getCategory(id)
       },
       (err) => {
-        console.log('err', err)
+        toast.error(err?.response?.data?.message)
       }
     )
   }
@@ -52,9 +51,6 @@ const CategoryDetail = () => {
   useEffect(() => {
     getCategory(id)
   }, [])
-
-  console.log('category', category)
-  console.log('addCategoryData', addCategoryData)
 
   return (
     <Paper elevation={3} sx={{padding: '30px'}}>

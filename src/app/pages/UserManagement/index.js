@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {TablesWidget10} from '../../../_metronic/partials/widgets'
 import UISwitch from '../../../components/UISwitch/UISwitch'
 import UIButton from '../../../components/UIButton/UIButton'
@@ -10,13 +10,12 @@ import {toast} from 'react-toastify'
 import {Grid, Paper} from '@mui/material'
 import UITypogrpahy from '../../../components/UITypography/UITypography'
 import AddIcon from '@mui/icons-material/Add'
+import UITextField from '../../../components/UITextField/UITextField'
 
 export const UserManage = () => {
   const [getUsers, users] = useUser()
 
-  useEffect(() => {
-    getUsers()
-  }, [])
+  const [filteredUsers, setFilteredUsers] = useState([])
 
   const handleStatus = (id, status) => {
     const dataObj = {
@@ -26,25 +25,42 @@ export const UserManage = () => {
       `${ApiEndpoints.root}${ApiEndpoints.updateUser}${id}`,
       dataObj,
       (res) => {
-        console.log('res', res)
         toast.success(res.message)
         getUsers()
       },
       (err) => {
-        console.log('err', err)
+        toast.error(err?.response?.data?.message)
       }
     )
   }
+
+  const handleSearch = (e) => {
+    setFilteredUsers(() => {
+      return users.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
+    })
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  useEffect(() => {
+    setFilteredUsers(users)
+  }, [users.length, users])
 
   return (
     <>
       <Paper elevation={2} sx={{borderRadius: '15px', padding: '30px'}}>
         <Grid container spacing={3} justifyContent='space-between'>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <UITypogrpahy type='subHeading' title='User Management' />
           </Grid>
+          <Grid item xs={3}>
+            <UITextField label='Search' fullWidth handleChange={handleSearch} />
+          </Grid>
+
           <Grid item xs={12}>
-            <UsersTable users={users} handleStatus={handleStatus} />
+            <UsersTable users={filteredUsers} handleStatus={handleStatus} />
           </Grid>
         </Grid>
       </Paper>

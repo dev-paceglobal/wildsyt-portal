@@ -8,49 +8,23 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import {useNavigate} from 'react-router-dom'
 import {pathLocations} from '../../utils/pathLocations'
 
-const UsersTable = ({users, handleStatus}) => {
+const ContentTable = ({content, handleStatus}) => {
   const navigate = useNavigate()
   const columns = [
     {
-      name: <UITypogrpahy title='User' />,
-      selector: (row) => row.name,
+      name: <UITypogrpahy title='S.No' />,
+
       sortable: true,
-      cell: (row) => {
-        return (
-          <img sx={{fontSize: '13px'}} src={row.image} height={30} style={{borderRadius: '10px'}} />
-        )
+      cell: (row, i) => {
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={i + 1} />
       },
     },
     {
-      name: <UITypogrpahy title='User name' />,
+      name: <UITypogrpahy title='Page name' />,
       selector: (row) => row.email,
       sortable: true,
       cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.first_name + ' ' + row.last_name} />
-      },
-    },
-    {
-      name: <UITypogrpahy title='Email' />,
-      selector: (row) => row.phoneNumber,
-      sortable: true,
-      cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.email} />
-      },
-    },
-    {
-      name: <UITypogrpahy title='Phone Number' />,
-      selector: (row) => row.phoneNumber,
-      sortable: true,
-      cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.phone} />
-      },
-    },
-    {
-      name: <UITypogrpahy title='Registeration Data' />,
-      selector: (row) => row.phoneNumber,
-      sortable: true,
-      cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.created_at} />
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.name} />
       },
     },
     {
@@ -60,9 +34,9 @@ const UsersTable = ({users, handleStatus}) => {
       cell: (row) => {
         return (
           <UISwitch
-            checked={row.status == 1 ? true : false}
+            checked={row.status == 'active' ? true : false}
             onChange={() => {
-              handleStatus(row?.id, row?.status)
+              // handleStatus(row?.id, row?.status)
             }}
           />
         )
@@ -86,7 +60,7 @@ const UsersTable = ({users, handleStatus}) => {
               //   setSelectedId(row?._id)
               //   setModalOpen(true)
               //   setAnchorEl(null)
-              navigate(`${pathLocations.userManagement}/${row.id}`)
+              navigate(`${pathLocations.contentManagement}/${row.id}`)
             }}
           >
             <RemoveRedEyeIcon
@@ -118,7 +92,7 @@ const UsersTable = ({users, handleStatus}) => {
       ),
     },
   ]
-  return <UITable columns={columns} data={users} pagination={true} />
+  return <UITable columns={columns} data={content} pagination={true} />
 }
 
-export default UsersTable
+export default ContentTable

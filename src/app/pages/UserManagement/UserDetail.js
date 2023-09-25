@@ -48,8 +48,6 @@ const UserDetail = () => {
     getUserById()
   }, [])
 
-  console.log('user', user)
-
   return (
     <>
       <Grid container spacing={2}>

@@ -3,14 +3,14 @@ import {apiGet} from '../apis/ApiRequest'
 import {ApiEndpoints} from '../apis/ApiEndpoints'
 import {toast} from 'react-toastify'
 
-export default function useUser() {
-  const [users, setUsers] = useState([])
+export default function useContentById() {
+  const [content, setContent] = useState([])
 
-  function getUsers() {
+  function getContent(id) {
     apiGet(
-      `${ApiEndpoints.root}${ApiEndpoints.users}`,
+      `${ApiEndpoints.root}${ApiEndpoints.contents}/${id}`,
       (res) => {
-        setUsers(res.data.data)
+        setContent(res.data)
       },
       (err) => {
         toast.error(err?.response?.data?.message)
@@ -18,5 +18,5 @@ export default function useUser() {
     )
   }
 
-  return [getUsers, users]
+  return [getContent, content]
 }

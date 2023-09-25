@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {apiGet} from '../apis/ApiRequest'
 import {ApiEndpoints} from '../apis/ApiEndpoints'
+import { toast } from 'react-toastify'
 
 export default function useCategory() {
   const [categories, setCategories] = useState([])
@@ -9,11 +10,10 @@ export default function useCategory() {
     apiGet(
       `${ApiEndpoints.root}${ApiEndpoints.categories}`,
       (res) => {
-        console.log('res', res)
         setCategories(res.data.data)
       },
       (err) => {
-        console.log('err', err)
+        toast.error(err?.response?.data?.message)
       }
     )
   }

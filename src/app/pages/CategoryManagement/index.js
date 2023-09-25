@@ -11,6 +11,7 @@ import AddCategory from '../../../container/Category/AddCategory'
 import {ApiEndpoints} from '../../../apis/ApiEndpoints'
 import {apiDelete, apiPost, apiPut} from '../../../apis/ApiRequest'
 import {toast} from 'react-toastify'
+import UITextField from '../../../components/UITextField/UITextField'
 
 const CategoryManagement = () => {
   const [getCategories, categories] = useCategory()
@@ -22,6 +23,8 @@ const CategoryManagement = () => {
     description: '',
   })
 
+  const [filteredCategory, setFilteredCategory] = useState([])
+
   const handleInputChange = (e) => {
     setAddCategoryData({...addCategoryData, [e.target.name]: e.target.value})
   }
@@ -32,32 +35,36 @@ const CategoryManagement = () => {
       description: addCategoryData.description,
       status: 1,
     }
-    apiPost(
-      `${ApiEndpoints.root}${ApiEndpoints.addCategory}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        getCategories()
-        setIsAdd(false)
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
+    if (addCategoryData.name != '')
+      apiPost(
+        `${ApiEndpoints.root}${ApiEndpoints.addCategory}`,
+        dataObj,
+        (res) => {
+          toast.success(res.message)
+          getCategories()
+          setIsAdd(false)
+        },
+        (err) => {
+          toast.error(err?.response?.data?.message)
+        }
+      )
+    else {
+      toast.error('Name is required ')
+    }
   }
 
   const handleStatus = (id, status) => {
     const dataObj = {
-      status: status == 1 ? 'inactive' : 'active',
+      status: status == 'active' ? 'inactive' : 'active',
     }
     apiPut(
-      `${ApiEndpoints.categories}/${id}`,
+      `${ApiEndpoints.root}${ApiEndpoints.categories}/${id}`,
       dataObj,
       (res) => {
-        console.log('res', res)
+        toast.success(res.message)
+        getCategories()
       },
       (err) => {
-        console.log('err', err)
         toast.error(err?.response?.data?.message)
       }
     )
@@ -76,15 +83,27 @@ const CategoryManagement = () => {
     )
   }
 
+  const handleSearch = (e) => {
+    setFilteredCategory(() => {
+      return categories.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
+    })
+  }
+
   useEffect(() => {
     getCategories()
   }, [])
+
+  useEffect(() => {
+    setFilteredCategory(categories)
+  }, [categories.length, categories])
+
+  console.log('filteredCategory', filteredCategory)
 
   return (
     <>
       <Paper elevation={2} sx={{borderRadius: '15px', padding: '30px'}}>
         <Grid container spacing={2} justifyContent='space-between'>
-          <Grid item xs={6}>
+          <Grid item xs={8}>
             <UITypogrpahy type='subHeading' title='Category Management' />
           </Grid>
           <Grid item xs={2}>
@@ -113,13 +132,18 @@ const CategoryManagement = () => {
               />
             </Grid>
           ) : (
-            <Grid item xs={12}>
-              <CategoryTable
-                categories={categories}
-                handleDeleteCategory={handleDeleteCategory}
-                handleStatus={handleStatus}
-              />
-            </Grid>
+            <>
+              <Grid item xs={3}>
+                <UITextField label='Search' fullWidth handleChange={handleSearch} />
+              </Grid>
+              <Grid item xs={12}>
+                <CategoryTable
+                  categories={filteredCategory}
+                  handleDeleteCategory={handleDeleteCategory}
+                  handleStatus={handleStatus}
+                />
+              </Grid>
+            </>
           )}
         </Grid>
       </Paper>
