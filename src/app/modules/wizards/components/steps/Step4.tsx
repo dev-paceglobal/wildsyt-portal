@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import {KTIcon, toAbsoluteUrl} from '../../../../../_metronic/helpers'
 import {ErrorMessage, Field} from 'formik'
+import {pathLocations} from '../../../../../utils/pathLocations'
 
 const Step4: FC = () => {
   return (
@@ -10,7 +11,7 @@ const Step4: FC = () => {
 
         <div className='text-gray-400 fw-bold fs-6'>
           If you need more info, please check out
-          <a href='/dashboard' className='text-primary fw-bolder'>
+          <a href={pathLocations.dashboard} className='text-primary fw-bolder'>
             {' '}
             Help Page
           </a>

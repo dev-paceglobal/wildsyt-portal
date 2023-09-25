@@ -1,8 +1,8 @@
 import React from 'react'
 import {UIStyledSwitch} from './ui'
 
-const UISwitch = (props) => {
-  return <UIStyledSwitch {...props} />
+const UISwitch = ({defaultChecked, ...props}) => {
+  return <UIStyledSwitch defaultChecked={defaultChecked} {...props} />
 }
 
 export default UISwitch

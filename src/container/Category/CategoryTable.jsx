@@ -8,46 +8,36 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import {useNavigate} from 'react-router-dom'
 import {pathLocations} from '../../utils/pathLocations'
 
-const UsersTable = ({users, handleStatus}) => {
+const CategoryTable = ({categories, handleDeleteCategory, handleStatus}) => {
   const navigate = useNavigate()
   const columns = [
     {
-      name: <UITypogrpahy title='User' />,
+      name: <UITypogrpahy title='S.No' />,
+      sortable: true,
+      cell: (row, i) => {
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={i + 1} />
+      },
+      width: '80px',
+    },
+    {
+      name: <UITypogrpahy title='Name' />,
       selector: (row) => row.name,
       sortable: true,
       cell: (row) => {
-        return (
-          <img sx={{fontSize: '13px'}} src={row.image} height={30} style={{borderRadius: '10px'}} />
-        )
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.name} />
       },
     },
     {
-      name: <UITypogrpahy title='User name' />,
-      selector: (row) => row.email,
+      name: <UITypogrpahy title='Description' />,
+      selector: (row) => row.description,
       sortable: true,
       cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.first_name + ' ' + row.last_name} />
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.description} />
       },
     },
     {
-      name: <UITypogrpahy title='Email' />,
-      selector: (row) => row.phoneNumber,
-      sortable: true,
-      cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.email} />
-      },
-    },
-    {
-      name: <UITypogrpahy title='Phone Number' />,
-      selector: (row) => row.phoneNumber,
-      sortable: true,
-      cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.phone} />
-      },
-    },
-    {
-      name: <UITypogrpahy title='Registeration Data' />,
-      selector: (row) => row.phoneNumber,
+      name: <UITypogrpahy title='Creation Date' />,
+      selector: (row) => row.created_at,
       sortable: true,
       cell: (row) => {
         return <UITypogrpahy sx={{fontSize: '13px'}} title={row.created_at} />
@@ -55,16 +45,13 @@ const UsersTable = ({users, handleStatus}) => {
     },
     {
       name: <UITypogrpahy title='Status' />,
-      selector: (row) => row.phoneNumber,
+      selector: (row) => row.status,
       sortable: true,
       cell: (row) => {
         return (
           <UISwitch
-            checked={row.status == 1 ? true : false}
-            onChange={() => {
-              console.log('row', row)
-              handleStatus(row?.id, row?.status)
-            }}
+            checked={row.status == 'active' ? true : false}
+            onChange={() => handleStatus(row?.id, row?.status)}
           />
         )
       },
@@ -83,7 +70,7 @@ const UsersTable = ({users, handleStatus}) => {
               //   setSelectedId(row?._id)
               //   setModalOpen(true)
               //   setAnchorEl(null)
-              navigate(`${pathLocations.userManagement}/${row.id}`)
+              navigate(`${pathLocations.categoryManagement}/${row.id}`)
             }}
           >
             <RemoveRedEyeIcon
@@ -95,11 +82,13 @@ const UsersTable = ({users, handleStatus}) => {
               }}
             />
           </IconButton>
-          {/* <IconButton
+          <IconButton
             onClick={() => {
               //   setSelectedId(row?._id)
               //   setModalOpen(true)
               //   setAnchorEl(null)
+
+              handleDeleteCategory(row?.id)
             }}
           >
             <DeleteIcon
@@ -110,12 +99,12 @@ const UsersTable = ({users, handleStatus}) => {
                 },
               }}
             />
-          </IconButton> */}
+          </IconButton>
         </>
       ),
     },
   ]
-  return <UITable columns={columns} data={users} pagination={true} />
+  return <UITable columns={columns} data={categories} pagination={true} />
 }
 
-export default UsersTable
+export default CategoryTable

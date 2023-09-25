@@ -173,6 +173,7 @@ const UITextField = ({
         value={value}
         onChange={handleChange}
         error={errorMessage && true}
+        name={name}
         {...rest}
       />
       {errorMessage && <FormHelperText sx={{color: 'red'}}>{errorMessage}</FormHelperText>}

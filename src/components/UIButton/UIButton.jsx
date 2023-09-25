@@ -2,7 +2,7 @@ import React from 'react'
 import Input from '@mui/material/Input'
 import {Button, IconButton} from '@mui/material'
 import classes from './ButtonUI.module.css'
-import {UIStyledButton, UIStyledSimpleButton} from './ui'
+import {UIStyledButton, UIStyledIconButton, UIStyledSimpleButton} from './ui'
 
 const UIButton = ({
   icon,
@@ -28,13 +28,13 @@ const UIButton = ({
     </UIStyledButton>
   ) : btnType == 'icon' ? (
     iconPosition == 'start' ? (
-      <IconButton variant={variant} startIcon={icon} stylecolor={stylecolor} {...rest}>
+      <UIStyledIconButton variant={variant} startIcon={icon} stylecolor={stylecolor} {...rest}>
         {label}
-      </IconButton>
+      </UIStyledIconButton>
     ) : (
-      <IconButton variant={variant} endIcon={icon} stylecolor={stylecolor} {...rest}>
+      <UIStyledIconButton variant={variant} endIcon={icon} stylecolor={stylecolor} {...rest}>
         {label}
-      </IconButton>
+      </UIStyledIconButton>
     )
   ) : (
     <UIStyledSimpleButton type={type} {...rest}>

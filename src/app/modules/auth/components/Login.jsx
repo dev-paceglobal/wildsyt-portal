@@ -17,6 +17,7 @@ import {useNavigate} from 'react-router-dom'
 import {setToken} from '../../../../apis/Auth'
 import {useDispatch} from 'react-redux'
 import {setUserData} from '../../../../store/userSlice'
+import {pathLocations} from '../../../../utils/pathLocations'
 
 export function Login() {
   const navigate = useNavigate()
@@ -66,7 +67,7 @@ export function Login() {
       (res) => {
         toast.success(res.message)
         setToken(res.data.token)
-        navigate('/dashboard')
+        navigate(pathLocations.dashboard)
         const user = {
           user: res?.data?.user,
         }

@@ -15,6 +15,20 @@ export const UIStyledButton = styled(Button)(({theme, btnType}) => ({
   },
 }))
 
+export const UIStyledIconButton = styled(Button)(({theme, variant}) => ({
+  backgroundColor: variant === 'contained' ? theme.palette.primary.main : 'transparent',
+  color: variant === 'contained' ? theme.palette.primary.white : theme.palette.primary.main,
+  fontSize: '18px !important',
+  height: '95%',
+  border: `1px solid ${theme.palette.primary.main}`,
+  borderRadius: '12px',
+  '&:hover': {
+    backgroundColor:
+      variant === 'contained' ? theme.palette.primary.mainLight : theme.palette.primary.main,
+    color: variant === 'contained' ? theme.palette.primary.white : theme.palette.primary.white,
+  },
+}))
+
 export const UIStyledSimpleButton = styled(Button)(({theme, btnType}) => ({
   backgroundColor: 'transparent',
   color: theme.palette.primary.main,

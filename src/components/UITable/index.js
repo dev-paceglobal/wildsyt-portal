@@ -49,7 +49,7 @@ const UITable = ({columns, data, selectableRows, pagination, ...props}) => {
     table: {
       style: {
         borderRadius: '10px',
-        padding: '30px',
+        // padding: '30px',
         backgroundColor: 'white !important',
       },
     },

@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react'
 import {Grid} from '@mui/material'
 import {useParams} from 'react-router-dom'
 import useUser from '../../../hooks/useUser'
-import {apiGet} from '../../../apis/ApiRequest'
+import {apiGet, apiPut} from '../../../apis/ApiRequest'
 import {ApiEndpoints} from '../../../apis/ApiEndpoints'
 import UIDivider from '../../../components/UIDivider/UIDivider'
 import UITypogrpahy from '../../../components/UITypography/UITypography'
+import UISwitch from '../../../components/UISwitch/UISwitch'
+import {toast} from 'react-toastify'
 
 const UserDetail = () => {
   const {id} = useParams()
@@ -17,11 +19,27 @@ const UserDetail = () => {
     apiGet(
       `${ApiEndpoints.root}${ApiEndpoints.users}${id}`,
       (res) => {
-        console.log('res', res)
         setUser(res.data)
       },
       (err) => {
-        console.log('err', err)
+        toast.error(err.response.data.message)
+      }
+    )
+  }
+
+  const handleStatus = (id, status) => {
+    const dataObj = {
+      status: status == 1 ? 'inactive' : 'active',
+    }
+    apiPut(
+      `${ApiEndpoints.root}${ApiEndpoints.updateUser}${id}`,
+      dataObj,
+      (res) => {
+        toast.success(res.message)
+        getUserById()
+      },
+      (err) => {
+        toast.error(err.response.data.message)
       }
     )
   }
@@ -29,6 +47,8 @@ const UserDetail = () => {
   useEffect(() => {
     getUserById()
   }, [])
+
+  console.log('user', user)
 
   return (
     <>
@@ -74,6 +94,19 @@ const UserDetail = () => {
             type='subHeading'
             title={'California United State'}
             sx={{fontWeight: 500}}
+          />
+        </Grid>
+        <Grid item xs={12} display='flex' alignItems='center'>
+          <UITypogrpahy
+            type='subHeading'
+            title='Status:'
+            sx={{color: (theme) => theme.palette.primary.black}}
+          />
+          <UISwitch
+            checked={user.status == 1 ? true : false}
+            onChange={() => {
+              handleStatus(user?.id, user?.status)
+            }}
           />
         </Grid>
       </Grid>

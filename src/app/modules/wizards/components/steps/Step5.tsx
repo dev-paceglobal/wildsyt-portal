@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import {KTIcon} from '../../../../../_metronic/helpers'
 import {Link} from 'react-router-dom'
+import {pathLocations} from '../../../../../utils/pathLocations'
 
 const Step5: FC = () => {
   return (
@@ -32,7 +33,7 @@ const Step5: FC = () => {
               <h4 className='text-gray-800 fw-bolder'>We need your attention!</h4>
               <div className='fs-6 text-gray-600'>
                 To start using great tools, please, please
-                <a href='/dashboard' className='fw-bolder'>
+                <a href={pathLocations.dashboard} className='fw-bolder'>
                   {' '}
                   Create Team Platform
                 </a>

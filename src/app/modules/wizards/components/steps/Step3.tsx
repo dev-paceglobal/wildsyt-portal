@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import {Field, ErrorMessage} from 'formik'
+import {pathLocations} from '../../../../../utils/pathLocations'
 
 const Step3: FC = () => {
   return (
@@ -9,7 +10,7 @@ const Step3: FC = () => {
 
         <div className='text-gray-400 fw-bold fs-6'>
           If you need more info, please check out
-          <a href='/dashboard' className='link-primary fw-bolder'>
+          <a href={pathLocations.dashboard} className='link-primary fw-bolder'>
             {' '}
             Help Page
           </a>

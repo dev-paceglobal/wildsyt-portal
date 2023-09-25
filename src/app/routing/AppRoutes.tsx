@@ -12,6 +12,7 @@ import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {Logout, AuthPage, useAuth} from '../modules/auth'
 import {App} from '../App'
 import {getToken} from '../../apis/Auth'
+import {pathLocations} from '../../utils/pathLocations'
 
 /**
  * Base URL of the website.
@@ -24,7 +25,7 @@ const AppRoutes: FC = () => {
   const {currentUser} = useAuth()
 
   const token = getToken()
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,8 +33,8 @@ const AppRoutes: FC = () => {
           <Route path='error/*' element={<ErrorsPage />} />
           <Route path='logout' element={<Logout />} />
           <Route path='/*' element={<PrivateRoutes />} />
-          <Route index element={<Navigate to='/dashboard' />} />
-       
+          <Route index element={<Navigate to={pathLocations.dashboard} />} />
+
           <Route path='auth/*' element={<AuthPage />} />
           <Route path='*' element={<Navigate to='/auth' />} />
         </Route>

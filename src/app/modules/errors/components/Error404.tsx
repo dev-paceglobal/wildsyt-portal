@@ -1,6 +1,7 @@
 import {FC} from 'react'
 import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
+import {pathLocations} from '../../../../utils/pathLocations'
 
 const Error404: FC = () => {
   return (
@@ -30,7 +31,7 @@ const Error404: FC = () => {
 
       {/* begin::Link */}
       <div className='mb-0'>
-        <Link to='/dashboard' className='btn btn-sm btn-primary'>
+        <Link to={pathLocations.dashboard} className='btn btn-sm btn-primary'>
           Return Home
         </Link>
       </div>

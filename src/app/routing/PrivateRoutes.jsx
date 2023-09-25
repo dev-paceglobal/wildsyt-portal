@@ -20,6 +20,8 @@ import CommissionManagement from '../pages/CommisionManagement'
 import AdsManagement from '../pages/AdsManagement'
 import PaymentLog from '../pages/PaymentLog'
 import UserDetail from '../pages/UserManagement/UserDetail'
+import {pathLocations} from '../../utils/pathLocations'
+import CategoryDetail from '../pages/CategoryManagement/CategoryDetail'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -46,7 +48,7 @@ const PrivateRoutes = () => {
     <Routes>
       <Route element={<MasterLayout />}>
         {/* Redirect to Dashboard after success login/registartion */}
-        <Route path='auth/*' element={<Navigate to='/dashboard' />} />
+        <Route path='auth/*' element={<Navigate to={pathLocations.dashboard} />} />
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
@@ -101,7 +103,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/user-management'
+          path={`${pathLocations.userManagement}`}
           element={
             <SuspensedView>
               <UserManage />
@@ -109,7 +111,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/user-management/:id'
+          path={`${pathLocations.userManagement}/:id`}
           element={
             <SuspensedView>
               <UserDetail />
@@ -129,6 +131,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <CategoryManagement />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='/category-management/:id'
+          element={
+            <SuspensedView>
+              <CategoryDetail />
             </SuspensedView>
           }
         />
@@ -175,7 +185,7 @@ const SuspensedView = ({children}) => {
   const baseColor = getCSSVariableValue('--bs-primary')
   TopBarProgress.config({
     barColors: {
-      '0': baseColor,
+      0: baseColor,
     },
     barThickness: 1,
     shadowBlur: 5,

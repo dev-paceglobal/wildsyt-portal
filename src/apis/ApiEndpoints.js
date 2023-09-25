@@ -9,4 +9,8 @@ export const ApiEndpoints = {
   verifyOtp: '/verify-otp',
   users: '/users/',
   updateUser: '/users/',
+  categories: '/categories',
+  addCategory: '/categories',
+  deleteCategory: '/categories',
+  updateCategory: '/categories',
 }

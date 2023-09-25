@@ -4,6 +4,7 @@ import {useIntl} from 'react-intl'
 import {KTIcon} from '../../../../helpers'
 import {SidebarMenuItemWithSub} from './SidebarMenuItemWithSub'
 import {SidebarMenuItem} from './SidebarMenuItem'
+import {pathLocations} from '../../../../../utils/pathLocations'
 
 const SidebarMenuMain = () => {
   const intl = useIntl()
@@ -11,7 +12,7 @@ const SidebarMenuMain = () => {
   return (
     <>
       <SidebarMenuItem
-        to='/dashboard'
+        to={pathLocations.dashboard}
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         iconClass='fa-solid fa-boxes-stacked'
         myIcon={true}

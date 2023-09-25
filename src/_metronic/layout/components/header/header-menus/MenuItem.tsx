@@ -6,14 +6,13 @@ import {checkIsActive, KTIcon} from '../../../../helpers'
 
 type Props = {
   to: string
-  title: string
   icon?: string
   fontIcon?: string
   hasArrow?: boolean
   hasBullet?: boolean
 }
 
-const MenuItem: FC<Props> = ({to, title, icon, fontIcon, hasArrow = false, hasBullet = false}) => {
+const MenuItem: FC<Props> = ({to, icon, fontIcon, hasArrow = false, hasBullet = false}) => {
   const {pathname} = useLocation()
 
   return (
@@ -42,7 +41,7 @@ const MenuItem: FC<Props> = ({to, title, icon, fontIcon, hasArrow = false, hasBu
           </span>
         )}
 
-        <span className='menu-title'>{title}</span>
+        {/* <span className='menu-title'>{title}</span> */}
 
         {hasArrow && <span className='menu-arrow'></span>}
       </Link>

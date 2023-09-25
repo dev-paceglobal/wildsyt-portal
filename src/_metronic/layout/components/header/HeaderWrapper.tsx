@@ -5,6 +5,7 @@ import {KTIcon, toAbsoluteUrl} from '../../../helpers'
 import {useLayout} from '../../core'
 import {Header} from './Header'
 import {Navbar} from './Navbar'
+import {pathLocations} from '../../../../utils/pathLocations'
 
 export function HeaderWrapper() {
   const {config, classes} = useLayout()
@@ -36,7 +37,7 @@ export function HeaderWrapper() {
                 <KTIcon iconName='abstract-14' className=' fs-1' />
               </div>
               <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
-                <Link to='/dashboard' className='d-lg-none'>
+                <Link to={pathLocations.dashboard} className='d-lg-none'>
                   <img
                     alt='Logo'
                     src={toAbsoluteUrl('/media/logos/small-logo.png')}
@@ -50,7 +51,7 @@ export function HeaderWrapper() {
 
         {!(config.layoutType === 'dark-sidebar' || config.layoutType === 'light-sidebar') && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15'>
-            <Link to='/dashboard'>
+            <Link to={pathLocations.dashboard}>
               {config.layoutType !== 'dark-header' ? (
                 <img
                   alt='Logo'
