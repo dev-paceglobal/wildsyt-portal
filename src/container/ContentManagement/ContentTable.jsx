@@ -18,6 +18,7 @@ const ContentTable = ({content, handleStatus}) => {
       cell: (row, i) => {
         return <UITypogrpahy sx={{fontSize: '13px'}} title={i + 1} />
       },
+      width: '80px',
     },
     {
       name: <UITypogrpahy title='Page name' />,

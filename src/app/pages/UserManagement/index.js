@@ -48,6 +48,8 @@ export const UserManage = () => {
     setFilteredUsers(users)
   }, [users.length, users])
 
+  console.log('users', users)
+
   return (
     <>
       <Paper elevation={2} sx={{borderRadius: '15px', padding: '30px'}}>

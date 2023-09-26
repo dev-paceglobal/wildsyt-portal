@@ -15,4 +15,6 @@ export const ApiEndpoints = {
   updateCategory: '/categories',
   contents: '/pages',
   editContent: '/pages/',
+  getComission: '/comission',
+  updateCommission: '/comission/',
 }

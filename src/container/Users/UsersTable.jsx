@@ -117,7 +117,22 @@ const UsersTable = ({users, handleStatus}) => {
       ),
     },
   ]
-  return <UITable columns={columns} data={users} pagination={true} />
+  const paginationComponentOptions = {
+    // rowsPerPageText: 'Filas por página',
+    // rangeSeparatorText: 'de',
+    selectAllRowsItem: true,
+    selectAllRowsItemText: 'All',
+  }
+  return (
+    <UITable
+      columns={columns}
+      data={users}
+      pagination={true}
+      paginationRowsPerPageOptions={[10, 20, 30, 40, 50]}
+      paginationPerPage={10}
+      paginationComponentOptions={paginationComponentOptions}
+    />
+  )
 }
 
 export default UsersTable

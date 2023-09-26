@@ -16,6 +16,8 @@ const StatisticsWidget1 = ({
   btnLabel,
   commission,
   isEdit,
+  handleUpdate,
+  setCommissionVal,
   ...props
 }) => {
   return (
@@ -50,10 +52,11 @@ const StatisticsWidget1 = ({
             InputProps={{
               endAdornment: <InputAdornment position='end'>%</InputAdornment>,
             }}
+            handleChange={(e) => setCommissionVal(e.target.value)}
           />
         )}
 
-        <UIButton btnType='contained' label={btnLabel} {...props} />
+        <UIButton btnType='contained' label={btnLabel} onClick={handleUpdate} {...props} />
       </Box>
       {/* end::Body */}
     </div>
