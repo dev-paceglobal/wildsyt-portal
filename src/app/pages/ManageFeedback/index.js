@@ -32,7 +32,7 @@ const ManageFeedback = () => {
           <Grid item xs={12}>
             <UITypogrpahy type='subHeading' title='Feedbacks Management' />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} md={3}>
             <UITextField label='Search' fullWidth handleChange={handleSearch} />
           </Grid>
 
