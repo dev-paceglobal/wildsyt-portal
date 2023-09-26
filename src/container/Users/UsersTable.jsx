@@ -13,9 +13,8 @@ const UsersTable = ({users, handleStatus}) => {
   const columns = [
     {
       name: <UITypogrpahy title='User' />,
-      selector: (row) => row.name,
       sortable: true,
-      cell: (row) => {
+      cell: (row, i) => {
         return (
           <img sx={{fontSize: '13px'}} src={row.image} height={30} style={{borderRadius: '10px'}} />
         )
@@ -26,7 +25,7 @@ const UsersTable = ({users, handleStatus}) => {
       selector: (row) => row.email,
       sortable: true,
       cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.first_name + ' ' + row.last_name} />
+        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.name} />
       },
     },
     {

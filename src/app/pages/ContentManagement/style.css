@@ -5,3 +5,10 @@
 .contentDiv > form > input {
   width: 30%;
 }
+.contentDiv p {
+  font-size: 18px;
+}
+
+.quillEditor > .ql-container {
+  min-height: 120px;
+}

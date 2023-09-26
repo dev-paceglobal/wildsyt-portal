@@ -13,8 +13,6 @@ const UserDetail = () => {
   const {id} = useParams()
   const [user, setUser] = useState({})
 
-  console.log('id', id)
-
   const getUserById = () => {
     apiGet(
       `${ApiEndpoints.root}${ApiEndpoints.users}${id}`,

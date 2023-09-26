@@ -36,7 +36,7 @@ const ContentTable = ({content, handleStatus}) => {
           <UISwitch
             checked={row.status == 'active' ? true : false}
             onChange={() => {
-              // handleStatus(row?.id, row?.status)
+              handleStatus(row?.id, row?.status)
             }}
           />
         )

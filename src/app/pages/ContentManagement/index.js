@@ -6,9 +6,29 @@ import {Grid, Paper} from '@mui/material'
 import UITypogrpahy from '../../../components/UITypography/UITypography'
 import UITextField from '../../../components/UITextField/UITextField'
 import ContentTable from '../../../container/ContentManagement/ContentTable'
+import {ApiEndpoints} from '../../../apis/ApiEndpoints'
+import {toast} from 'react-toastify'
+import {apiPut} from '../../../apis/ApiRequest'
 
 const ContentManagement = () => {
   const [getContent, content] = useContent()
+
+  const handleStatus = (id, status) => {
+    const dataObj = {
+      status: status == 'active' ? 'inactive' : 'active',
+    }
+    apiPut(
+      `${ApiEndpoints.root}${ApiEndpoints.editContent}${id}`,
+      dataObj,
+      (res) => {
+        toast.success(res.message)
+        getContent()
+      },
+      (err) => {
+        toast.error(err?.response?.data?.message)
+      }
+    )
+  }
 
   useEffect(() => {
     getContent()
@@ -21,7 +41,7 @@ const ContentManagement = () => {
       <Paper elevation={2} sx={{borderRadius: '15px', padding: '30px'}}>
         <Grid container spacing={3} justifyContent='space-between'>
           <Grid item xs={12}>
-            <UITypogrpahy type='subHeading' title='User Management' />
+            <UITypogrpahy type='subHeading' title='Content Management' />
           </Grid>
           <Grid item xs={3}>
             <UITextField
@@ -32,16 +52,10 @@ const ContentManagement = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <ContentTable
-              content={content}
-              //  handleStatus={handleStatus}
-            />
+            <ContentTable content={content} handleStatus={handleStatus} />
           </Grid>
         </Grid>
-      </Paper>{' '}
-      {/* {content?.map((item) => {
-        return <div dangerouslySetInnerHTML={{__html: item.content}} />
-      })} */}
+      </Paper>
     </>
   )
 }

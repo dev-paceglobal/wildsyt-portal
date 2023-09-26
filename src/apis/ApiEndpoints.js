@@ -13,5 +13,6 @@ export const ApiEndpoints = {
   addCategory: '/categories',
   deleteCategory: '/categories',
   updateCategory: '/categories',
-  contents:'/pages'
+  contents: '/pages',
+  editContent: '/pages/',
 }
