@@ -47,25 +47,25 @@ const ContentDetail = () => {
   return (
     <>
       <Grid container justifyContent='center'>
-        <Grid item xs={8}>
-          <Paper elevation={3} sx={{borderRadius: '15px', padding: '30px'}}>
+        <Grid item xs={12} lg={8}>
+          <Paper elevation={3} sx={{borderRadius: '15px', padding: {xs: 4, lg: '30px'}}}>
             {isEdit ? (
               <>
-                <Grid container spacing={2} alignItems='center'>
-                  <Grid item xs={1.5}>
+                <Grid container spacing={2}>
+                  <Grid item xs={4} lg={1.5}>
                     <UITypogrpahy title={'Page Name:'} />
                   </Grid>
-                  <Grid item xs={10}>
+                  <Grid item xs={8} lg={10}>
                     <UITextField
                       placeholder='Page name'
                       handleChange={(e) => setPageName(e.target.value)}
                       value={pageName}
                     />
                   </Grid>
-                  <Grid item xs={1.5}>
+                  <Grid item xs={12} md={4} lg={1.5}>
                     <UITypogrpahy title={'Description:'} />
                   </Grid>
-                  <Grid item xs={10}>
+                  <Grid item xs={12} md={8} lg={10}>
                     <ReactQuill
                       theme='snow'
                       value={editorValue}
@@ -85,17 +85,17 @@ const ContentDetail = () => {
                 </Grid>
               </>
             ) : (
-              <Grid container spacing={2} alignItems='center'>
-                <Grid item xs={1.5}>
+              <Grid container spacing={2}>
+                <Grid item xs={5} sm={3} md={4} lg={3} xl={1.5}>
                   <UITypogrpahy title={'Page Name:'} />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={6} sm={9} md={8} lg={9} xl={10}>
                   <UITypogrpahy type='subheading' title={content.name} />
                 </Grid>
-                <Grid item xs={1.5}>
+                <Grid item xs={12} sm={3} md={4} lg={3} xl={1.5}>
                   <UITypogrpahy title={'Description:'} />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={12} sm={9} md={8} lg={9} xl={10}>
                   <div className='contentDiv' dangerouslySetInnerHTML={{__html: content.content}} />
                 </Grid>
                 <Grid item xs={1.5}></Grid>

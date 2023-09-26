@@ -27,6 +27,9 @@ export const UIStyledIconButton = styled(Button)(({theme, variant}) => ({
       variant === 'contained' ? theme.palette.primary.mainLight : theme.palette.primary.main,
     color: variant === 'contained' ? theme.palette.primary.white : theme.palette.primary.white,
   },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '14px !important',
+  },
 }))
 
 export const UIStyledSimpleButton = styled(Button)(({theme, btnType}) => ({

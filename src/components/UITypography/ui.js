@@ -33,6 +33,9 @@ export const UIDescriptionTypography = styled(Typography)(
     fontSize: '18px',
     fontWeight: 500,
     color: theme.palette.primary.grey1,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+    },
   })
 )
 export const UISubDescriptionTypography = styled(Typography)(({theme, stylecolor, variant}) => ({

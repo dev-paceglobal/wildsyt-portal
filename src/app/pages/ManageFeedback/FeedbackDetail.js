@@ -17,37 +17,37 @@ const FeedbackDetail = () => {
 
   return (
     <Grid container>
-      <Grid item xs={8}>
+      <Grid item xs={12} md={8}>
         <Paper elevation={3} sx={{borderRadius: '15px', padding: '30px'}}>
           <Grid container spacing={2}>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Name:' />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10}>
               <UITypogrpahy title={feedback?.full_name} />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Email:' />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10}>
               <UITypogrpahy title={feedback?.email} />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Subject:' />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10}>
               <UITypogrpahy title={feedback?.subject} />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Date:' />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10}>
               <UITypogrpahy title={feedback?.created_at} />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Message:' />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10}>
               <UITypogrpahy title={feedback?.message} />
             </Grid>
           </Grid>

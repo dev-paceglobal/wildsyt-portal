@@ -97,16 +97,14 @@ const CategoryManagement = () => {
     setFilteredCategory(categories)
   }, [categories.length, categories])
 
-  console.log('filteredCategory', filteredCategory)
-
   return (
     <>
       <Paper elevation={2} sx={{borderRadius: '15px', padding: '30px'}}>
         <Grid container spacing={2} justifyContent='space-between'>
-          <Grid item xs={8}>
-            <UITypogrpahy type='subHeading' title='Category Management' />
+          <Grid item xs={12} sm={6} md={6} lg={6} xl={8}>
+            <UITypogrpahy title='Category Management' />
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={2}>
             {!isAdd && (
               <UIButton
                 btnType='icon'
@@ -133,7 +131,7 @@ const CategoryManagement = () => {
             </Grid>
           ) : (
             <>
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <UITextField label='Search' fullWidth handleChange={handleSearch} />
               </Grid>
               <Grid item xs={12}>

@@ -57,7 +57,7 @@ export const UserManage = () => {
           <Grid item xs={12}>
             <UITypogrpahy type='subHeading' title='User Management' />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} lg={3}>
             <UITextField label='Search' fullWidth handleChange={handleSearch} />
           </Grid>
 

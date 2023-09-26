@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {TablesWidget10} from '../../../_metronic/partials/widgets'
 import {UsersListWrapper} from '../../modules/apps/user-management/users-list/UsersList'
 import useContent from '../../../hooks/useContent'
@@ -12,6 +12,14 @@ import {apiPut} from '../../../apis/ApiRequest'
 
 const ContentManagement = () => {
   const [getContent, content] = useContent()
+
+  const [filteredContent, setFilteredContent] = useState([])
+
+  const handleSearch = (e) => {
+    setFilteredContent(() => {
+      return content.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
+    })
+  }
 
   const handleStatus = (id, status) => {
     const dataObj = {
@@ -34,7 +42,9 @@ const ContentManagement = () => {
     getContent()
   }, [])
 
-  console.log('content', content)
+  useEffect(() => {
+    setFilteredContent(content)
+  }, [content.length, content])
 
   return (
     <>
@@ -43,16 +53,12 @@ const ContentManagement = () => {
           <Grid item xs={12}>
             <UITypogrpahy type='subHeading' title='Content Management' />
           </Grid>
-          <Grid item xs={3}>
-            <UITextField
-              label='Search'
-              fullWidth
-              // handleChange={handleSearch}
-            />
+          <Grid item xs={6} lg={3}>
+            <UITextField label='Search' fullWidth handleChange={handleSearch} />
           </Grid>
 
           <Grid item xs={12}>
-            <ContentTable content={content} handleStatus={handleStatus} />
+            <ContentTable content={filteredContent} handleStatus={handleStatus} />
           </Grid>
         </Grid>
       </Paper>
