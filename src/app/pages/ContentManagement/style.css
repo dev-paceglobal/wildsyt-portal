@@ -1,0 +1,7 @@
+.contentDiv > form {
+  display: flex;
+  flex-direction: column;
+}
+.contentDiv > form > input {
+  width: 30%;
+}
