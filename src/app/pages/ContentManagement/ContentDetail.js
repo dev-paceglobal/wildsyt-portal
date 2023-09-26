@@ -48,7 +48,7 @@ const ContentDetail = () => {
     <>
       <Grid container justifyContent='center'>
         <Grid item xs={8}>
-          <Paper elevation={3} sx={{padding: '30px'}}>
+          <Paper elevation={3} sx={{borderRadius: '15px', padding: '30px'}}>
             {isEdit ? (
               <>
                 <Grid container spacing={2} alignItems='center'>

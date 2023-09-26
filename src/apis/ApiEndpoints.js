@@ -17,4 +17,5 @@ export const ApiEndpoints = {
   editContent: '/pages/',
   getComission: '/comission',
   updateCommission: '/comission/',
+  getFeedbacks: '/feedbacks',
 }

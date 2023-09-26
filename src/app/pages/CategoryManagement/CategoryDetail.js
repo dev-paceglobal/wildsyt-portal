@@ -53,7 +53,7 @@ const CategoryDetail = () => {
   }, [])
 
   return (
-    <Paper elevation={3} sx={{padding: '30px'}}>
+    <Paper elevation={3} sx={{borderRadius: '15px', padding: '30px'}}>
       <Grid container>
         <Grid item xs={12}>
           <UITypogrpahy

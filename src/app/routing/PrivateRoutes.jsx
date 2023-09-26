@@ -23,6 +23,8 @@ import UserDetail from '../pages/UserManagement/UserDetail'
 import {pathLocations} from '../../utils/pathLocations'
 import CategoryDetail from '../pages/CategoryManagement/CategoryDetail'
 import ContentDetail from '../pages/ContentManagement/ContentDetail'
+import ManageFeedback from '../pages/ManageFeedback'
+import FeedbackDetail from '../pages/ManageFeedback/FeedbackDetail'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -136,7 +138,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/category-management'
+          path={`${pathLocations.categoryManagement}`}
           element={
             <SuspensedView>
               <CategoryManagement />
@@ -144,7 +146,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/category-management/:id'
+          path={`${pathLocations.categoryManagement}/:id`}
           element={
             <SuspensedView>
               <CategoryDetail />
@@ -152,7 +154,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/commission-management'
+          path={`${pathLocations.commisionManagement}`}
           element={
             <SuspensedView>
               <CommissionManagement />
@@ -160,7 +162,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/ads-management'
+          path={`${pathLocations.adsManagement}`}
           element={
             <SuspensedView>
               <AdsManagement />
@@ -168,7 +170,7 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/payment-log'
+          path={`${pathLocations.paymentLogs}`}
           element={
             <SuspensedView>
               <PaymentLog />
@@ -176,10 +178,18 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='/manage-feedback'
+          path={`${pathLocations.manageFeedback}`}
           element={
             <SuspensedView>
-              <PaymentLog />
+              <ManageFeedback />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={`${pathLocations.manageFeedback}/:id`}
+          element={
+            <SuspensedView>
+              <FeedbackDetail />
             </SuspensedView>
           }
         />
