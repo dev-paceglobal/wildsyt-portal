@@ -85,6 +85,7 @@ export function apiDelete(endpoint, onSuccess, onFailure, headers) {
 }
 
 export async function fileUpload(endpoint, file) {
+  var token = getToken()
   var myHeaders = new Headers()
   myHeaders.append('accept', '*/*')
   myHeaders.append('Contect-Type', 'multipart/form-data')

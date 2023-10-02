@@ -34,7 +34,7 @@ export const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(getProfile.fulfilled, (state, action) => {
-      state.user = action.payload.data
+      state.user = action.payload?.data
       state.loading = false
     })
   },
