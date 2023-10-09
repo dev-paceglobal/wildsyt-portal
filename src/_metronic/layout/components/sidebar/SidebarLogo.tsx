@@ -50,7 +50,7 @@ const SidebarLogo = (props: PropsType) => {
 
   return (
     <div className='app-sidebar-logo px-6' id='kt_app_sidebar_logo'>
-      <Link to={pathLocations.dashboard}>
+      {/* <Link to={pathLocations.dashboard}>
         {config.layoutType === 'dark-sidebar' ? (
           <img
             alt='Logo'
@@ -77,7 +77,7 @@ const SidebarLogo = (props: PropsType) => {
           src={toAbsoluteUrl('/media/logos/small-logo.png')}
           className='h-20px app-sidebar-logo-minimize'
         />
-      </Link>
+      </Link> */}
 
       {(appSidebarDefaultMinimizeDesktopEnabled || appSidebarDefaultCollapseDesktopEnabled) && (
         <div
