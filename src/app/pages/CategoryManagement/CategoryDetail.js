@@ -30,27 +30,30 @@ const CategoryDetail = () => {
   }
 
   const handleUpdateCategory = () => {
-    const dataObj = {
-      name: addCategoryData.name,
-      description: category.description,
-      status: addCategoryData.status ? 'active' : 'inactive',
-    }
-    apiPut(
-      `${ApiEndpoints.root}${ApiEndpoints.updateCategory}/${id}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        getCategory(id)
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
+    alert("Fill All Fields")
   }
+  // const handleUpdateCategory = () => {
+  //   const dataObj = {
+  //     name: addCategoryData.name,
+  //     description: category.description,
+  //     status: addCategoryData.status ? 'active' : 'inactive',
+  //   }
+  //   apiPut(
+  //     `${ApiEndpoints.root}${ApiEndpoints.updateCategory}/${id}`,
+  //     dataObj,
+  //     (res) => {
+  //       toast.success(res.message)
+  //       getCategory(id)
+  //     },
+  //     (err) => {
+  //       toast.error(err?.response?.data?.message)
+  //     }
+  //   )
+  // }
 
-  useEffect(() => {
-    getCategory(id)
-  }, [])
+  // useEffect(() => {
+  //   getCategory(id)
+  // }, [])
 
   return (
     <Paper elevation={3} sx={{borderRadius: '15px', padding: '30px'}}>
@@ -78,19 +81,22 @@ const CategoryDetail = () => {
             <UITypogrpahy title='Name:' />
           </Grid>
           <Grid item xs={10}>
-            <UITypogrpahy title={category.name} />
+            {/* <UITypogrpahy title={category.name} /> */}
+            <UITypogrpahy title="Leopard Gecko" />
           </Grid>
           <Grid item xs={2}>
             <UITypogrpahy title='Status:' />
           </Grid>
           <Grid item xs={10}>
-            <UITypogrpahy title={category.status} />
+            {/* <UITypogrpahy title={category.status} /> */}
+            <UITypogrpahy title="true" />
           </Grid>
           <Grid item xs={2}>
             <UITypogrpahy title='Date:' />
           </Grid>
           <Grid item xs={10}>
-            <UITypogrpahy title={category.created_at} />
+            {/* <UITypogrpahy title={category.created_at} /> */}
+            <UITypogrpahy title="12/03/2024" />
           </Grid>
           <Grid item xs={2}>
             <UITypogrpahy title='No of Listing:' />

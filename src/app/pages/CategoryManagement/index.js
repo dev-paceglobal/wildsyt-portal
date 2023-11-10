@@ -23,79 +23,91 @@ const CategoryManagement = () => {
     description: '',
   })
 
-  const [filteredCategory, setFilteredCategory] = useState([])
+  const [filteredCategory, setFilteredCategory] = useState([
+    {
+      name: "Leopard Gecko",
+      description: "Category descriptions are meant to classify and describe the different types of products in your online shop. We are assuming that you have more than one specific product to offer. ",
+      created_at : "12/03/2024",
+      status: true,
+      id: 1
 
-  const handleInputChange = (e) => {
-    setAddCategoryData({...addCategoryData, [e.target.name]: e.target.value})
-  }
+    }
+  ])
+
+  // const handleInputChange = (e) => {
+  //   setAddCategoryData({...addCategoryData, [e.target.name]: e.target.value})
+  // }
 
   const handleAddCategory = () => {
-    const dataObj = {
-      name: addCategoryData.name,
-      description: addCategoryData.description,
-      status: 1,
-    }
-    if (addCategoryData.name != '')
-      apiPost(
-        `${ApiEndpoints.root}${ApiEndpoints.addCategory}`,
-        dataObj,
-        (res) => {
-          toast.success(res.message)
-          getCategories()
-          setIsAdd(false)
-        },
-        (err) => {
-          toast.error(err?.response?.data?.message)
-        }
-      )
-    else {
-      toast.error('Name is required ')
-    }
+    alert("Fill All Fields")
   }
+  // const handleAddCategory = () => {
+  //   const dataObj = {
+  //     name: addCategoryData.name,
+  //     description: addCategoryData.description,
+  //     status: 1,
+  //   }
+  //   if (addCategoryData.name != '')
+  //     apiPost(
+  //       `${ApiEndpoints.root}${ApiEndpoints.addCategory}`,
+  //       dataObj,
+  //       (res) => {
+  //         toast.success(res.message)
+  //         getCategories()
+  //         setIsAdd(false)
+  //       },
+  //       (err) => {
+  //         toast.error(err?.response?.data?.message)
+  //       }
+  //     )
+  //   else {
+  //     toast.error('Name is required ')
+  //   }
+  // }
 
-  const handleStatus = (id, status) => {
-    const dataObj = {
-      status: status == 'active' ? 'inactive' : 'active',
-    }
-    apiPut(
-      `${ApiEndpoints.root}${ApiEndpoints.categories}/${id}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        getCategories()
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
-  }
+  // const handleStatus = (id, status) => {
+  //   const dataObj = {
+  //     status: status == 'active' ? 'inactive' : 'active',
+  //   }
+  //   apiPut(
+  //     `${ApiEndpoints.root}${ApiEndpoints.categories}/${id}`,
+  //     dataObj,
+  //     (res) => {
+  //       toast.success(res.message)
+  //       getCategories()
+  //     },
+  //     (err) => {
+  //       toast.error(err?.response?.data?.message)
+  //     }
+  //   )
+  // }
 
-  const handleDeleteCategory = (id) => {
-    apiDelete(
-      `${ApiEndpoints.root}${ApiEndpoints.deleteCategory}/${id}`,
-      (res) => {
-        toast.success(res.message)
-        getCategories()
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
-  }
+  // const handleDeleteCategory = (id) => {
+  //   apiDelete(
+  //     `${ApiEndpoints.root}${ApiEndpoints.deleteCategory}/${id}`,
+  //     (res) => {
+  //       toast.success(res.message)
+  //       getCategories()
+  //     },
+  //     (err) => {
+  //       toast.error(err?.response?.data?.message)
+  //     }
+  //   )
+  // }
 
-  const handleSearch = (e) => {
-    setFilteredCategory(() => {
-      return categories.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
-    })
-  }
+  // const handleSearch = (e) => {
+  //   setFilteredCategory(() => {
+  //     return categories.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
+  //   })
+  // }
 
-  useEffect(() => {
-    getCategories()
-  }, [])
+  // useEffect(() => {
+  //   getCategories()
+  // }, [])
 
-  useEffect(() => {
-    setFilteredCategory(categories)
-  }, [categories.length, categories])
+  // useEffect(() => {
+  //   setFilteredCategory(categories)
+  // }, [categories.length, categories])
 
   return (
     <>
@@ -123,22 +135,23 @@ const CategoryManagement = () => {
             <Grid item xs={12} mt={3}>
               <AddCategory
                 setIsAdd={setIsAdd}
-                handleInputChange={handleInputChange}
+                // handleInputChange={handleInputChange}
                 addCategoryData={addCategoryData}
-                setAddCategoryData={setAddCategoryData}
+                // setAddCategoryData={setAddCategoryData}
                 handleAddCategory={handleAddCategory}
               />
             </Grid>
           ) : (
             <>
               <Grid item xs={6} md={3}>
-                <UITextField label='Search' fullWidth handleChange={handleSearch} />
+                {/* <UITextField label='Search' fullWidth handleChange={handleSearch} /> */}
+                <UITextField label='Search' fullWidth  />
               </Grid>
               <Grid item xs={12}>
                 <CategoryTable
                   categories={filteredCategory}
-                  handleDeleteCategory={handleDeleteCategory}
-                  handleStatus={handleStatus}
+                  // handleDeleteCategory={handleDeleteCategory}
+                  // handleStatus={handleStatus}
                 />
               </Grid>
             </>

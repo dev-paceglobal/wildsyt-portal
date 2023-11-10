@@ -59,12 +59,12 @@ const SidebarMenuMain = () => {
         myIcon={true}
         iconClass='fa-solid fa-hand-holding-dollar'
       />
-      <SidebarMenuItem
+      {/* <SidebarMenuItem
         to='/ads-management'
         title={'Ads Management'}
         iconClass='bi bi-kanban'
         myIcon={true}
-      />
+      /> */}
       
       <SidebarMenuItem to='/profile' title={'Profile'} myIcon={true} iconClass={'bi bi-people'} />
       {/* <SidebarMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />

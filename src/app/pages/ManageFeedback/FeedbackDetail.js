@@ -9,11 +9,11 @@ const FeedbackDetail = () => {
 
   const [getFeedback, feedback] = useFeedbackById()
 
-  useEffect(() => {
-    getFeedback(id)
-  }, [])
+  // useEffect(() => {
+  //   getFeedback(id)
+  // }, [])
 
-  console.log('feedback', feedback)
+  // console.log('feedback', feedback)
 
   return (
     <Grid container>
@@ -24,31 +24,36 @@ const FeedbackDetail = () => {
               <UITypogrpahy type='subheading' title='Name:' />
             </Grid>
             <Grid item xs={12} md={10}>
-              <UITypogrpahy title={feedback?.full_name} />
+              {/* <UITypogrpahy title={feedback?.full_name} /> */}
+              <UITypogrpahy title="Jason Roy" />
             </Grid>
             <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Email:' />
             </Grid>
             <Grid item xs={12} md={10}>
-              <UITypogrpahy title={feedback?.email} />
+              {/* <UITypogrpahy title={feedback?.email} /> */}
+              <UITypogrpahy title="jasonroy@gmail.com" />
             </Grid>
             <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Subject:' />
             </Grid>
             <Grid item xs={12} md={10}>
-              <UITypogrpahy title={feedback?.subject} />
+              {/* <UITypogrpahy title={feedback?.subject} /> */}
+              <UITypogrpahy title="subject" />
             </Grid>
             <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Date:' />
             </Grid>
             <Grid item xs={12} md={10}>
-              <UITypogrpahy title={feedback?.created_at} />
+              {/* <UITypogrpahy title={feedback?.created_at} /> */}
+              <UITypogrpahy title="12/9/2024" />
             </Grid>
             <Grid item xs={12} md={2}>
               <UITypogrpahy type='subheading' title='Message:' />
             </Grid>
             <Grid item xs={12} md={10}>
-              <UITypogrpahy title={feedback?.message} />
+              {/* <UITypogrpahy title={feedback?.message} /> */}
+              <UITypogrpahy title="The nature of your product determines the optimal way of collecting feedback. Check out these creative ideas that can inspire you to collect feedback and boost the metrics that are most important to you." />
             </Grid>
           </Grid>
         </Paper>

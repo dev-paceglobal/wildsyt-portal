@@ -12,45 +12,46 @@ const CommissionManagement = () => {
 
   const [commissionVal, setCommissionVal] = useState('')
 
-  useEffect(() => {
-    getCommissions()
-  }, [])
+  // useEffect(() => {
+  //   getCommissions()
+  // }, [])
 
-  const editCommission = () => {
-    const dataObj = {
-      platform_comission: commissionVal,
-    }
-    apiPost(
-      `${ApiEndpoints.root}${ApiEndpoints.updateCommission}`,
-      dataObj,
-      (res) => {
-        toast.success(res?.message)
-        setIsEdit(false)
-        getCommissions()
-      },
-      (err) => {
-        toast.error(err.response.data.message)
-      }
-    )
-  }
+  // const editCommission = () => {
+  //   const dataObj = {
+  //     platform_comission: commissionVal,
+  //   }
+  //   apiPost(
+  //     `${ApiEndpoints.root}${ApiEndpoints.updateCommission}`,
+  //     dataObj,
+  //     (res) => {
+  //       toast.success(res?.message)
+  //       setIsEdit(false)
+  //       getCommissions()
+  //     },
+  //     (err) => {
+  //       toast.error(err.response.data.message)
+  //     }
+  //   )
+  // }
   
   return (
     <div>
       <Grid container>
-        {commissions?.map((item, i) => {
-          return (
+        {/* {commissions?.map((item, i) => {
+          return ( */}
             <Grid item xs={12} md={4}>
               <StatisticsWidget1
                 className='card-xl-stretch mb-xl-8'
-                commission={`${item.value}%`}
+                // commission={`${item.value}%`}
+                commission={`10%`}
                 btnLabel={isEdit ? 'Update' : 'Edit'}
                 isEdit={isEdit}
-                handleUpdate={() => (isEdit ? editCommission() : setIsEdit(true))}
+                handleUpdate={() => (setIsEdit(true))}
                 setCommissionVal={setCommissionVal}
               />
             </Grid>
-          )
-        })}
+           {/* )
+         })} */}
       </Grid>
     </div>
   )

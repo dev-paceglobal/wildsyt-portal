@@ -33,7 +33,17 @@ const PaymentLogsTable = ({content, handleStatus}) => {
       },
     },
     {
-      name: <UITypogrpahy title='Image' />,
+      name: <UITypogrpahy title='Email' />,
+      selector: (row) => row.email,
+      sortable: true,
+      cell: (row) => {
+        return (
+                <UITypogrpahy sx={{fontSize: '13px'}} title={row.email} />
+        )
+      },
+    },
+    {
+      name: <UITypogrpahy title='Image' textAlign='right' />,
       selector: (row) => row.email,
       sortable: true,
       cell: (row) => {
@@ -57,7 +67,7 @@ const PaymentLogsTable = ({content, handleStatus}) => {
       },
     },
     {
-      name: <UITypogrpahy title='Actions' textAlign='center' sx={{width: '100%'}} />,
+      name: <UITypogrpahy title='Amount' textAlign='center' sx={{width: '100%'}} />,
 
       style: {
         display: 'flex',
@@ -65,23 +75,9 @@ const PaymentLogsTable = ({content, handleStatus}) => {
       },
       cell: (row) => (
         <>
-          <IconButton
-            onClick={() => {
-              //   setSelectedId(row?._id)
-              //   setModalOpen(true)
-              //   setAnchorEl(null)
-              navigate(`${pathLocations.contentManagement}/${row.id}`)
-            }}
-          >
-            <RemoveRedEyeIcon
-              sx={{
-                color: (theme) => theme.palette.primary.main,
-                '&:hover': {
-                  //   color: (theme) => theme.palette.indicators.main,
-                },
-              }}
-            />
-          </IconButton>
+          
+          <UITypogrpahy sx={{fontSize: '13px'}} title="$30" />
+          
           {/* <IconButton
             onClick={() => {
               //   setSelectedId(row?._id)

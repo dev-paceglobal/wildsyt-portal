@@ -51,7 +51,7 @@ const CategoryTable = ({categories, handleDeleteCategory, handleStatus}) => {
         return (
           <UISwitch
             checked={row.status == 'active' ? true : false}
-            onChange={() => handleStatus(row?.id, row?.status)}
+            // onChange={() => handleStatus(row?.id, row?.status)}
           />
         )
       },
@@ -88,7 +88,7 @@ const CategoryTable = ({categories, handleDeleteCategory, handleStatus}) => {
               //   setModalOpen(true)
               //   setAnchorEl(null)
 
-              handleDeleteCategory(row?.id)
+              // handleDeleteCategory(row?.id)
             }}
           >
             <DeleteIcon
