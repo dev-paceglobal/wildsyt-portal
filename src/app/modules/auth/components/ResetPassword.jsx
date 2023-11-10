@@ -38,17 +38,17 @@ const ResetPassword = () => {
       password_confirmation: data.confirmPassword,
       email: resetPasswordReducer.email,
     }
-    apiPost(
-      `${ApiEndpoints.root}${ApiEndpoints.resetPassword}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        navigate('/auth/login')
-      },
-      (err) => {
-        toast.error(err.response.data.message)
-      }
-    )
+    // apiPost(
+    //   `${ApiEndpoints.root}${ApiEndpoints.resetPassword}`,
+    //   dataObj,
+    //   (res) => {
+    //     toast.success(res.message)
+    //     navigate('/auth/login')
+    //   },
+    //   (err) => {
+    //     toast.error(err.response.data.message)
+    //   }
+    // )
   }
   return (
     <>

@@ -5,6 +5,7 @@ import {useAuth} from '../../../../app/modules/auth'
 import {Languages} from './Languages'
 import {toAbsoluteUrl} from '../../../helpers'
 import {useSelector} from 'react-redux'
+import logoImage from '../../../../assest/images/UserImg.png'
 import {removeToken} from '../../../../apis/Auth'
 
 const HeaderUserMenu = () => {
@@ -26,7 +27,8 @@ const HeaderUserMenu = () => {
       <div className='menu-item px-3'>
         <div className='menu-content d-flex align-items-center px-3'>
           <div className='symbol symbol-50px me-5'>
-            <img alt='Logo' src={userDataReducer?.user?.image} />
+            {/* <img alt='Logo' src={userDataReducer?.user?.image} /> */}
+            <img alt='Logo' src={logoImage} />
           </div>
 
           <div className='d-flex flex-column'>
@@ -43,7 +45,7 @@ const HeaderUserMenu = () => {
       <div className='separator my-2'></div>
 
       <div className='menu-item px-5'>
-        <Link to={'/profile'} className='menu-link px-5'>
+        <Link to={'/profile'} className='menu-link px-5' >
           My Profile
         </Link>
       </div>
@@ -52,7 +54,7 @@ const HeaderUserMenu = () => {
         <a href='#' className='menu-link px-5'>
           <span className='menu-text'>My Projects</span>
           <span className='menu-badge'>
-            <span className='badge badge-light-danger badge-circle fw-bolder fs-7'>3</span>
+            <span className='badge badge-light-danger badge-circle fw-bolder fs-7'> 3 </span>
           </span>
         </a>
       </div> */}

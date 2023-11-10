@@ -3,6 +3,7 @@ import {KTIcon, toAbsoluteUrl} from '../../../helpers'
 import {HeaderNotificationsMenu, HeaderUserMenu, Search, ThemeModeSwitcher} from '../../../partials'
 import {useLayout} from '../../core'
 import {useSelector} from 'react-redux'
+import logoImage from '../../../../assest/images/UserImg.png'
 
 const itemClass = 'ms-1 ms-md-4'
 const btnClass =
@@ -58,7 +59,8 @@ const Navbar = () => {
           data-kt-menu-attach='parent'
           data-kt-menu-placement='bottom-end'
         >
-          <img src={userDataReducer?.user?.image} alt='avatar' />
+          {/* <img src={userDataReducer?.user?.image} alt='avatar' /> */}
+          <img src={logoImage} alt='avatar' />
         </div>
         <HeaderUserMenu />
       </div>

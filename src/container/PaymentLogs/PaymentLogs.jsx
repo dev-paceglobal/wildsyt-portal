@@ -1,14 +1,16 @@
 import React from 'react'
-import UITable from '../../components/UITable'
-import UITypogrpahy from '../../components/UITypography/UITypography'
-import {IconButton, Paper} from '@mui/material'
+import {Grid, IconButton, Paper} from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import UISwitch from '../../components/UISwitch/UISwitch'
+
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import {useNavigate} from 'react-router-dom'
-import {pathLocations} from '../../utils/pathLocations'
 
-const ContentTable = ({content, handleStatus}) => {
+import { pathLocations } from '../../utils/pathLocations'
+import UITypogrpahy from '../../components/UITypography/UITypography'
+import UISwitch from '../../components/UISwitch/UISwitch'
+import UITable from '../../components/UITable'
+
+const PaymentLogsTable = ({content, handleStatus}) => {
   const navigate = useNavigate()
   const columns = [
     {
@@ -21,25 +23,32 @@ const ContentTable = ({content, handleStatus}) => {
       width: '80px',
     },
     {
-      name: <UITypogrpahy title='Page name' />,
+      name: <UITypogrpahy title='Name' />,
       selector: (row) => row.email,
       sortable: true,
       cell: (row) => {
-        return <UITypogrpahy sx={{fontSize: '13px'}} title={row.name} />
+        return (
+                <UITypogrpahy sx={{fontSize: '13px'}} title={row.name} />
+        )
       },
     },
     {
-      name: <UITypogrpahy title='Status' textAlign='center' sx={{width: '100%'}} />,
-      selector: (row) => row.phoneNumber,
+      name: <UITypogrpahy title='Image' />,
+      selector: (row) => row.email,
       sortable: true,
       cell: (row) => {
         return (
-          <UISwitch
-            checked={row.status == 'active' ? true : false}
-            // onChange={() => {
-            //   handleStatus(row?.id, row?.status)
-            // }}
-          />
+            <img src={row.image} height={50} width={50} style={{borderRadius: '100%'}} />
+        )
+      },
+    },
+    {
+      name: <UITypogrpahy title='Product' textAlign='center' sx={{width: '100%'}} />,
+      selector: (row) => row.product,
+      sortable: true,
+      cell: (row) => {
+        return (
+            <UITypogrpahy sx={{fontSize: '13px'}} title={row.product} />
         )
       },
       style: {
@@ -96,4 +105,4 @@ const ContentTable = ({content, handleStatus}) => {
   return <UITable columns={columns} data={content} pagination={true} />
 }
 
-export default ContentTable
+export default PaymentLogsTable

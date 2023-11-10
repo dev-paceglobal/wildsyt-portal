@@ -33,9 +33,9 @@ const DashboardPage: FC = () => (
         />
         <CardsWidget7
           className='h-md-50 mb-5 mb-xl-10'
-          description='Professionals'
+          description='New Users'
           icon={false}
-          stats={357}
+          stats={25}
           labelColor='dark'
           textColor='gray-300'
         />
@@ -45,7 +45,7 @@ const DashboardPage: FC = () => (
       {/* begin::Col */}
       <div className='col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10'>
         <CardsWidget17 className='h-md-50 mb-5 mb-xl-10' />
-        <ListsWidget26 className='h-lg-50' />
+        {/* <ListsWidget26 className='h-lg-50' /> */}
       </div>
       {/* end::Col */}
 
@@ -78,9 +78,9 @@ const DashboardPage: FC = () => (
       {/* <div className='col-xxl-4'>
         <ListsWidget3 className='card-xxl-stretch mb-xl-3' />
       </div> */}
-      <div className='col-xl-12'>
+      {/* <div className='col-xl-12'>
         <TablesWidget10 btnName='Add Member' className='card-xxl-stretch mb-5 mb-xl-8' />
-      </div>
+      </div> */}
     </div>
     {/* end::Row */}
 

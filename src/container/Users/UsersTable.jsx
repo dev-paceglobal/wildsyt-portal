@@ -8,6 +8,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import {useNavigate} from 'react-router-dom'
 import {pathLocations} from '../../utils/pathLocations'
 
+
 const UsersTable = ({users, handleStatus}) => {
   const navigate = useNavigate()
   const columns = [
@@ -17,6 +18,7 @@ const UsersTable = ({users, handleStatus}) => {
       cell: (row, i) => {
         return (
           <img sx={{fontSize: '13px'}} src={row.image} height={30} style={{borderRadius: '10px'}} />
+          // <img sx={{fontSize: '13px'}} src={userData} height={30} style={{borderRadius: '10px'}} />
         )
       },
     },
@@ -45,7 +47,7 @@ const UsersTable = ({users, handleStatus}) => {
       },
     },
     {
-      name: <UITypogrpahy title='Registeration Data' />,
+      name: <UITypogrpahy title='Registeration Date' />,
       selector: (row) => row.phoneNumber,
       sortable: true,
       cell: (row) => {

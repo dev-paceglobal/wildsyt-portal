@@ -4,8 +4,8 @@ import {createTheme} from '@mui/material/styles'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#f9790f',
-      mainLight: '#ee7230',
+      main: 'rgb(78, 137, 109)',
+      mainLight: 'rgb(83 159 123)',
       yellow: '#f9a413',
       black: '#0e0e0e',
       grey1: '#878787',

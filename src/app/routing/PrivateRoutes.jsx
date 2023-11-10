@@ -25,6 +25,9 @@ import CategoryDetail from '../pages/CategoryManagement/CategoryDetail'
 import ContentDetail from '../pages/ContentManagement/ContentDetail'
 import ManageFeedback from '../pages/ManageFeedback'
 import FeedbackDetail from '../pages/ManageFeedback/FeedbackDetail'
+import SubscriptionManage from '../pages/SubscriptionManage'
+import AddSubscriber from '../pages/AddSubscriber'
+import SubscriptionDetails from '../pages/SubscriptionManage/subscriptionDetails'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -40,9 +43,9 @@ const PrivateRoutes = () => {
 
   useEffect(() => {
     const token = getToken()
-    if (token == null || token == '') {
-      navigate('/auth')
-    }
+    // if (token == null || token == '') {
+    //   navigate('/auth')
+    // }
 
     dispatch(getProfile())
   }, [])
@@ -51,7 +54,7 @@ const PrivateRoutes = () => {
     <Routes>
       <Route element={<MasterLayout />}>
         {/* Redirect to Dashboard after success login/registartion */}
-        <Route path='auth/*' element={<Navigate to={pathLocations.dashboard} />} />
+        {/* <Route path='auth/*' element={<Navigate to={pathLocations.dashboard} />} /> */}
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
@@ -121,6 +124,34 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
+
+           {/* set  */}
+
+        <Route
+          path={`${pathLocations.subscriptionManage}`}
+          element={
+            <SuspensedView>
+              <SubscriptionManage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={`${pathLocations.addsubscriber}`}
+          element={
+            <SuspensedView>
+              <AddSubscriber />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={`${pathLocations.subscriptionManage}/:id`}
+          element={
+            <SuspensedView>
+              <SubscriptionDetails />
+            </SuspensedView>
+          }
+        />
+
         <Route
           path={`${pathLocations.contentManagement}`}
           element={

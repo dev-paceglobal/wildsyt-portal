@@ -57,27 +57,29 @@ export function Login() {
   // })
 
   const handleLogin = (data) => {
-    const dataObj = {
-      email: data.email,
-      password: data.password,
-    }
-    apiPost(
-      `${ApiEndpoints.root}${ApiEndpoints.login}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        setToken(res.data.token)
-        navigate(pathLocations.dashboard)
-        const user = {
-          user: res?.data?.user,
-        }
-        dispatch(setUserData(user))
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
-  }
+    // const dataObj = {
+    //   email: data.email,
+    //   password: data.password,
+    // }
+    navigate(pathLocations.dashboard)
+    console.log(pathLocations.dashboard);
+    // apiPost(
+    //   `${ApiEndpoints.root}${ApiEndpoints.login}`,
+    //   dataObj,
+    //   (res) => {
+    //     toast.success(res.message)
+    //     setToken(res.data.token)
+    //     navigate(pathLocations.dashboard)
+    //     const user = {
+    //       user: res?.data?.user,
+    //     }
+    //     dispatch(setUserData(user))
+    //   },
+    //   (err) => {
+    //     toast.error(err?.response?.data?.message)
+    //   }
+    // )
+  } 
 
   return (
     <>
@@ -121,7 +123,7 @@ export function Login() {
           <UIButton
             label='Forget Password?'
             onClick={() => {
-              navigate('/auth/forgot-password')
+              navigate('/auth/forgot-password');
             }}
           />
         </Grid>

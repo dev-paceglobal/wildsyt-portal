@@ -13,38 +13,47 @@ import {apiPut} from '../../../apis/ApiRequest'
 const ContentManagement = () => {
   const [getContent, content] = useContent()
 
-  const [filteredContent, setFilteredContent] = useState([])
+  const [filteredContent, setFilteredContent] = useState([
+    {
+      name: "About Page",
+      email: "john@gmail.com",
+      phoneNumber: "34675634536",
+      status: false,
+      id: 1
 
-  const handleSearch = (e) => {
-    setFilteredContent(() => {
-      return content.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
-    })
-  }
-
-  const handleStatus = (id, status) => {
-    const dataObj = {
-      status: status == 'active' ? 'inactive' : 'active',
     }
-    apiPut(
-      `${ApiEndpoints.root}${ApiEndpoints.editContent}${id}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        getContent()
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
-  }
+  ])
 
-  useEffect(() => {
-    getContent()
-  }, [])
+  // const handleSearch = (e) => {
+  //   setFilteredContent(() => {
+  //     return content.filter((elm) => elm.name.toLowerCase().includes(e.target.value))
+  //   })
+  // }
 
-  useEffect(() => {
-    setFilteredContent(content)
-  }, [content.length, content])
+  // const handleStatus = (id, status) => {
+  //   const dataObj = {
+  //     status: status == 'active' ? 'inactive' : 'active',
+  //   }
+  //   apiPut(
+  //     `${ApiEndpoints.root}${ApiEndpoints.editContent}${id}`,
+  //     dataObj,
+  //     (res) => {
+  //       toast.success(res.message)
+  //       getContent()
+  //     },
+  //     (err) => {
+  //       toast.error(err?.response?.data?.message)
+  //     }
+  //   )
+  // }
+
+  // useEffect(() => {
+  //   getContent()
+  // }, [])
+
+  // useEffect(() => {
+  //   setFilteredContent(content)
+  // }, [content.length, content])
 
   return (
     <>
@@ -54,11 +63,12 @@ const ContentManagement = () => {
             <UITypogrpahy type='subHeading' title='Content Management' />
           </Grid>
           <Grid item xs={6} md={3}>
-            <UITextField label='Search' fullWidth handleChange={handleSearch} />
+            {/* <UITextField label='Search' fullWidth handleChange={handleSearch} /> */}
+            <UITextField label='Search' fullWidth />
           </Grid>
 
           <Grid item xs={12}>
-            <ContentTable content={filteredContent} handleStatus={handleStatus} />
+            <ContentTable content={filteredContent} />
           </Grid>
         </Grid>
       </Paper>

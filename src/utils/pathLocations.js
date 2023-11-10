@@ -8,4 +8,6 @@ export const pathLocations = {
   adsManagement: '/ads-management',
   paymentLogs: '/payment-log',
   manageFeedback: '/manage-feedback',
+  subscriptionManage: '/subscription-manage',
+  addsubscriber: '/add-subscriber'
 }

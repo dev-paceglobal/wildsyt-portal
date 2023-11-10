@@ -8,49 +8,52 @@ import UIDivider from '../../../components/UIDivider/UIDivider'
 import UITypogrpahy from '../../../components/UITypography/UITypography'
 import UISwitch from '../../../components/UISwitch/UISwitch'
 import {toast} from 'react-toastify'
+import userImage from '../../../assest/images/userImage.webp'
 
 const UserDetail = () => {
-  const {id} = useParams()
+  const {id} = useParams();
   const [user, setUser] = useState({})
 
-  const getUserById = () => {
-    apiGet(
-      `${ApiEndpoints.root}${ApiEndpoints.users}${id}`,
-      (res) => {
-        setUser(res.data)
-      },
-      (err) => {
-        toast.error(err.response.data.message)
-      }
-    )
-  }
+  // const getUserById = () => {
+  //   apiGet(
+  //     `${ApiEndpoints.root}${ApiEndpoints.users}${id}`,
+  //     (res) => {
+  //       setUser(res.data)
+  //     },
+  //     (err) => {
+  //       toast.error(err.response.data.message)
+  //     }
+  //   )
+  // }
 
-  const handleStatus = (id, status) => {
-    const dataObj = {
-      status: status == 1 ? 'inactive' : 'active',
-    }
-    apiPut(
-      `${ApiEndpoints.root}${ApiEndpoints.updateUser}${id}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        getUserById()
-      },
-      (err) => {
-        toast.error(err.response.data.message)
-      }
-    )
-  }
+  // const handleStatus = (id, status) => {
+  //   const dataObj = {
+  //     status: status == 1 ? 'inactive' : 'active',
+  //   }
+  //   apiPut(
+  //     `${ApiEndpoints.root}${ApiEndpoints.updateUser}${id}`,
+  //     dataObj,
+  //     (res) => {
+  //       toast.success(res.message)
+  //       getUserById()
+  //     },
+  //     (err) => {
+  //       toast.error(err.response.data.message)
+  //     }
+  //   )
+  // }
 
-  useEffect(() => {
-    getUserById()
-  }, [])
+  // useEffect(() => {
+  //   getUserById()
+  // }, [])
 
   return (
     <>
       <Grid container spacing={2}>
+        <UITypogrpahy  type='subHeading' title='User Details' />
         <Grid item xs={12}>
-          <img src={user.image} height={90} style={{borderRadius: '20px'}} />
+          {/* <img src={user.image} height={90} style={{borderRadius: '20px'}} alt="user" /> */}
+          <img src={userImage} height={90} style={{borderRadius: '20px'}} alt="user" />
         </Grid>
         <Grid item xs={12}>
           <UIDivider />
@@ -62,7 +65,8 @@ const UserDetail = () => {
             title='Full Name:'
             sx={{color: (theme) => theme.palette.primary.black}}
           />
-          <UITypogrpahy type='subHeading' title={user.name} sx={{fontWeight: 500}} />
+          {/* <UITypogrpahy type='subHeading' title={user.name} sx={{fontWeight: 500}} /> */}
+          <UITypogrpahy type='subHeading' title="John" sx={{fontWeight: 500}} />
         </Grid>
         <Grid item xs={12}>
           <UITypogrpahy
@@ -70,7 +74,8 @@ const UserDetail = () => {
             title='Phone Number:'
             sx={{color: (theme) => theme.palette.primary.black}}
           />
-          <UITypogrpahy type='subHeading' title={user.phone} sx={{fontWeight: 500}} />
+          {/* <UITypogrpahy type='subHeading' title={user.phone} sx={{fontWeight: 500}} /> */}
+          <UITypogrpahy type='subHeading' title="3784567888886" sx={{fontWeight: 500}} />
         </Grid>
         <Grid item xs={12}>
           <UITypogrpahy
@@ -78,7 +83,8 @@ const UserDetail = () => {
             title='Email:'
             sx={{color: (theme) => theme.palette.primary.black}}
           />
-          <UITypogrpahy type='subHeading' title={user.phone} sx={{fontWeight: 500}} />
+          {/* <UITypogrpahy type='subHeading' title={user.phone} sx={{fontWeight: 500}} /> */}
+          <UITypogrpahy type='subHeading' title="john@gmail.com" sx={{fontWeight: 500}} />
         </Grid>
         <Grid item xs={12}>
           <UITypogrpahy
@@ -99,10 +105,11 @@ const UserDetail = () => {
             sx={{color: (theme) => theme.palette.primary.black}}
           />
           <UISwitch
-            checked={user.status == 1 ? true : false}
-            onChange={() => {
-              handleStatus(user?.id, user?.status)
-            }}
+            cheaked="true"
+            // checked={user.status == 1 ? true : false}
+            // onChange={() => {
+            //   handleStatus(user?.id, user?.status)
+            // }}
           />
         </Grid>
       </Grid>

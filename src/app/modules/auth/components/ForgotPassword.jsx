@@ -35,18 +35,18 @@ export function ForgotPassword() {
     const dataObj = {
       email: data.email,
     }
-    apiPost(
-      `${ApiEndpoints.root}${ApiEndpoints.forgetPassword}`,
-      dataObj,
-      (res) => {
-        toast.success(res.message)
-        navigate('/auth/otp-verification')
-        dispatch(resetPasswordData(dataObj))
-      },
-      (err) => {
-        toast.error(err?.response?.data?.message)
-      }
-    )
+    // apiPost(
+    //   `${ApiEndpoints.root}${ApiEndpoints.forgetPassword}`,
+    //   dataObj,
+    //   (res) => {
+    //     toast.success(res.message)
+    //     navigate('/auth/otp-verification')
+    //     dispatch(resetPasswordData(dataObj))
+    //   },
+    //   (err) => {
+    //     toast.error(err?.response?.data?.message)
+    //   }
+    // )
   }
 
   return (

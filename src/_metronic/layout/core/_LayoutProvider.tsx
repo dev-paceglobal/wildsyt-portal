@@ -47,7 +47,7 @@ const enableSplashScreen = () => {
 const disableSplashScreen = () => {
   const splashScreen = document.getElementById('splash-screen')
   if (splashScreen) {
-    splashScreen.style.setProperty('display', 'none')
+    splashScreen.style.setProperty('display', 'none');
   }
 }
 

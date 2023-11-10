@@ -24,10 +24,28 @@ const SidebarMenuMain = () => {
         myIcon={true}
       />
       <SidebarMenuItem
+        to='/subscription-manage'
+        title={'Subscription Manage'}
+        iconClass='bi bi-ui-checks-grid'
+        myIcon={true}
+      />
+      <SidebarMenuItem
         to='/content-management'
         title={'Content Management'}
         iconClass='bi bi-body-text'
         myIcon={true}
+      />
+      <SidebarMenuItem
+        to='/payment-log'
+        title={'Payments Logs'}
+        iconClass='bi bi-credit-card'
+        myIcon={true}
+      />
+      <SidebarMenuItem
+        to='/manage-feedback'
+        title={'Manage Feedback'}
+        myIcon={true}
+        iconClass='bi bi-layout-text-window-reverse'
       />
       <SidebarMenuItem
         to='/category-management'
@@ -47,18 +65,7 @@ const SidebarMenuMain = () => {
         iconClass='bi bi-kanban'
         myIcon={true}
       />
-      <SidebarMenuItem
-        to='/payment-log'
-        title={'Payments Logs'}
-        iconClass='bi bi-credit-card'
-        myIcon={true}
-      />
-      <SidebarMenuItem
-        to='/manage-feedback'
-        title={'Manage Feedback'}
-        myIcon={true}
-        iconClass='bi bi-layout-text-window-reverse'
-      />
+      
       <SidebarMenuItem to='/profile' title={'Profile'} myIcon={true} iconClass={'bi bi-people'} />
       {/* <SidebarMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
       <div className='menu-item'>

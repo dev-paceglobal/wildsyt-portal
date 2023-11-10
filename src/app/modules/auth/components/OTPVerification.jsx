@@ -27,18 +27,18 @@ const OTPVerification = () => {
     if (otp.length != 6) {
       toast.error('OTP is invalid')
     } else {
-      apiPost(
-        `${ApiEndpoints.root}${ApiEndpoints.verifyOtp}`,
-        dataObj,
-        (res) => {
-          toast.success(res.message)
-          navigate('/auth/reset-password')
-          dispatch(resetPasswordData({email: resetPasswordReducer.email, otp: otp}))
-        },
-        (err) => {
-          toast.error(err?.response?.data?.message)
-        }
-      )
+      // apiPost(
+      //   `${ApiEndpoints.root}${ApiEndpoints.verifyOtp}`,
+      //   dataObj,
+      //   (res) => {
+      //     toast.success(res.message)
+      //     navigate('/auth/reset-password')
+      //     dispatch(resetPasswordData({email: resetPasswordReducer.email, otp: otp}))
+      //   },
+      //   (err) => {
+      //     toast.error(err?.response?.data?.message)
+      //   }
+      // )
     }
   }
 
